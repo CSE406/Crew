@@ -1,4 +1,4 @@
-package com.crew.ui;
+package com.crew.ui.group;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

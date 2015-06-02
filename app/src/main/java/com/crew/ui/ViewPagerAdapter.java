@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.crew.ui.group.GroupListFragment;
+import com.crew.ui.group.GroupManagementFragment;
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     final int PAGE_COUNT =3;

@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
 
     private ListView mDrawerList;
     ViewPager pager;
-    private String titles[] = new String[]{"        시간표        ", "       그룸 리스트       ", "        그룹 관리        "};
+    private String titles[] = new String[]{"        MAIN        ", "       TIME TABLE       ", "        Crew's        "};
     private Toolbar toolbar;
 
     SlidingTabLayout slidingTabLayout;

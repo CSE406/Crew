@@ -9,12 +9,18 @@
         android:background="@color/purple_50"
         android:layout_height="fill_parent">
 
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/songListView"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
         <com.crew.ui.material.FloatingActionButton
             android:id="@+id/fabButton"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="bottom|right"
-            android:background="@color/purple_500"
             android:layout_margin="16dp"
             android:textSize="24sp"
             android:layout_alignParentBottom="true"

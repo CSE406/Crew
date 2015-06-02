@@ -23,14 +23,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.TimeTableActivity"
-            android:label="@string/title_activity_time_table" >
-        </activity>
-        <activity
-            android:name=".ui.GroupActivity"
-            android:label="@string/title_activity_group" >
-        </activity>
-        <activity
             android:name=".ui.MainActivity"
             android:label="@string/title_activity_group" >
         </activity>
