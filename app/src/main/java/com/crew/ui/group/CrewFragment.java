@@ -10,14 +10,14 @@ import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
 import com.crew.ui.material.ProgressBarCircular;
 
-public class GroupManagementFragment extends Fragment {
+public class CrewFragment extends Fragment {
 
     private static final String ARG_POSITION = "position";
 
     private int position;
 
-    public static GroupManagementFragment newInstance(int position) {
-        GroupManagementFragment f = new GroupManagementFragment();
+    public static CrewFragment newInstance(int position) {
+        CrewFragment f = new CrewFragment();
         Bundle b = new Bundle();
         b.putInt(ARG_POSITION, position);
         f.setArguments(b);
@@ -27,7 +27,7 @@ public class GroupManagementFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         position = getArguments().getInt(ARG_POSITION);
-        View rootView = inflater.inflate(R.layout.fragment_groupmanage, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_crew, container, false);
 
         ProgressBarCircular progressBarCircular = (ProgressBarCircular) rootView.findViewById(R.id.progress);
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fabButton);

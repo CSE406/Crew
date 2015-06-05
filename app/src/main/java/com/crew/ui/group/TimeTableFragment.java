@@ -1,4 +1,4 @@
-package com.crew.ui;
+package com.crew.ui.group;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.crew.R;
-import com.crew.ui.material.FloatingActionButton;
-import com.crew.ui.material.ProgressBarCircular;
 
 public class TimeTableFragment extends Fragment {
 

@@ -4,8 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.crew.ui.group.GroupListFragment;
-import com.crew.ui.group.GroupManagementFragment;
+import com.crew.ui.group.MainFragment;
+import com.crew.ui.group.CrewFragment;
+import com.crew.ui.group.TimeTableFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
@@ -22,11 +23,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         switch (position) {
             // Open FragmentTab1.java
             case 0:
-                return TimeTableFragment.newInstance(position);
+                return MainFragment.newInstance(position);
             case 1:
-                return GroupListFragment.newInstance(position);
+                return TimeTableFragment.newInstance(position);
             case 2:
-                return GroupManagementFragment.newInstance(position);
+                return CrewFragment.newInstance(position);
         }
         return null;
     }
