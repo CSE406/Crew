@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.crew.ui.group.MainFragment;
+import com.crew.ui.main.MainFragment;
 import com.crew.ui.group.CrewFragment;
 import com.crew.ui.group.TimeTableFragment;
 

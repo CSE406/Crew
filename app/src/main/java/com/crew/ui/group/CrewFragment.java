@@ -29,31 +29,6 @@ public class CrewFragment extends Fragment {
         position = getArguments().getInt(ARG_POSITION);
         View rootView = inflater.inflate(R.layout.fragment_crew, container, false);
 
-        ProgressBarCircular progressBarCircular = (ProgressBarCircular) rootView.findViewById(R.id.progress);
-        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fabButton);
-        fab.setDrawableIcon(getResources().getDrawable(R.drawable.plus));
-        switch (position) {
-            case 0:
-                fab.setBackgroundColor(getResources().getColor(R.color.material_deep_teal_500));
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.material_deep_teal_500));
-                break;
-            case 1:
-                fab.setBackgroundColor(getResources().getColor(R.color.red));
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.red));
-
-                break;
-            case 2:
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.blue));
-                fab.setBackgroundColor(getResources().getColor(R.color.blue));
-
-                break;
-            case 3:
-                fab.setBackgroundColor(getResources().getColor(R.color.material_blue_grey_800));
-                progressBarCircular.setBackgroundColor(getResources().getColor(R.color.material_blue_grey_800));
-
-                break;
-        }
-
         return rootView;
     }
 }

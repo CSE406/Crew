@@ -31,7 +31,7 @@ public class SampleFragment extends Fragment {
 
         ProgressBarCircular progressBarCircular = (ProgressBarCircular) rootView.findViewById(R.id.progress);
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fabButton);
-        fab.setDrawableIcon(getResources().getDrawable(R.drawable.plus));
+        fab.setDrawableIcon(getResources().getDrawable(R.drawable.button_icon));
         switch (position) {
             case 0:
                 fab.setBackgroundColor(getResources().getColor(R.color.material_deep_teal_500));
