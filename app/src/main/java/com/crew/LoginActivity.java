@@ -4,23 +4,21 @@ import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.crew.ui.MainActivity;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-
-import org.json.JSONObject;
 
 import java.util.Arrays;
 
@@ -29,31 +27,26 @@ public class LoginActivity extends FragmentActivity {
     private LoginButton loginButton;
     private Button guestButton;
     private CallbackManager callbackManager;
+    private ProfileTracker profileTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-        setContentView(R.layout.activity_login);
-
         callbackManager = CallbackManager.Factory.create();
+
+        setContentView(R.layout.activity_login);
         loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
         loginButton.setReadPermissions(Arrays.asList("email"));
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        Log.i("facebook","login success");
-                        GraphRequest.newMeRequest(
-                                loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-                                    @Override
-                                    public void onCompleted(JSONObject me, GraphResponse response) {
-                                        if (response.getError() != null) {
-                                            Log.e("facebook","handle error");
-                                        } else {
-                                            Toast.makeText(getApplicationContext(), "Welcome " + me.optString("name") + "!", Toast.LENGTH_LONG);
-                                        }
-                                    }
-                                }).executeAsync();
+                        Profile profile = Profile.getCurrentProfile();
+                        Toast.makeText(getApplicationContext(), "Welcome "+profile.getName()+"!", Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
 
                     @Override
@@ -63,7 +56,7 @@ public class LoginActivity extends FragmentActivity {
 
                     @Override
                     public void onError(FacebookException e) {
-                        Log.e("facebook",e.getMessage());
+                        Log.e("facebook", e.getMessage());
                     }
                 }
         );
@@ -77,6 +70,11 @@ public class LoginActivity extends FragmentActivity {
                 finish();
             }
         });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }
