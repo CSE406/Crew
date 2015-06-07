@@ -51,8 +51,6 @@ public class LoginActivity extends FragmentActivity {
                                             Log.e("facebook","handle error");
                                         } else {
                                             Toast.makeText(getApplicationContext(), "Welcome " + me.optString("name") + "!", Toast.LENGTH_LONG);
-                                            //String email = me.optString("email");
-                                            //String id = me.optString("id");
                                         }
                                     }
                                 }).executeAsync();
