@@ -2,7 +2,7 @@ package com.crew.ui.main;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.graphics.Typeface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,17 +11,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
+import com.crew.LoginActivity;
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
+import com.facebook.login.LoginManager;
+import com.facebook.login.widget.LoginButton;
 
 public class MainFragment extends Fragment {
 
     private static final String ARG_POSITION = "position";
 
     private int position;
-    private Typeface mTypeface;
 
     private RelativeLayout mMainLayout, mInfromationLayout, mAccountLayout;
     private Button mInformationCloseButton, mAccountCloseButton;
@@ -29,6 +30,8 @@ public class MainFragment extends Fragment {
     private ListView mTodoListView, mNoticeListView;
     private TodoListAdapter mTodoListAdapter;
     private NoticeListAdapter mNoticeAdapter;
+
+    private Button facebookButton;
 
     public static MainFragment newInstance(int position) {
         MainFragment f = new MainFragment();
@@ -42,10 +45,6 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         position = getArguments().getInt(ARG_POSITION);
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-        mTypeface = Typeface.createFromAsset(getActivity().getAssets(), "toms_handwritten.ttf");
-        ViewGroup root = (ViewGroup) rootView.findViewById(R.id.content_frame);
-        setGlobalFont(root);
 
         mMainLayout = (RelativeLayout) rootView.findViewById(R.id.mainLayout);
         mInfromationLayout = (RelativeLayout) rootView.findViewById(R.id.informationLayout);
@@ -96,6 +95,18 @@ public class MainFragment extends Fragment {
         mNoticeAdapter.addItem("CCC", "Our Regular meeting...");
         mNoticeAdapter.addItem("Hon-Cheon-Ui", "Next Meeting is on...");
 
+        //facebook logout
+        facebookButton = (Button) rootView.findViewById(R.id.facebookButton);
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
         return rootView;
     }
 
@@ -118,15 +129,5 @@ public class MainFragment extends Fragment {
         });
         AlertDialog alert = alt_bld.create();
         alert.show();
-    }
-
-    void setGlobalFont(ViewGroup root) {
-        for (int i = 0; i < root.getChildCount(); i++) {
-            View child = root.getChildAt(i);
-            if (child instanceof TextView)
-                ((TextView)child).setTypeface(mTypeface);
-            else if (child instanceof ViewGroup)
-                setGlobalFont((ViewGroup)child);
-        }
     }
 }
