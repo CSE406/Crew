@@ -1,7 +1,5 @@
 package com.crew.ui;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,20 +9,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
-import com.crew.LoginActivity;
 import com.crew.R;
 import com.crew.ui.material.SlidingTabLayout;
-import com.facebook.login.LoginManager;
-import com.facebook.login.widget.LoginButton;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -38,8 +30,6 @@ public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
 
     SlidingTabLayout slidingTabLayout;
-
-    private Button facebookButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

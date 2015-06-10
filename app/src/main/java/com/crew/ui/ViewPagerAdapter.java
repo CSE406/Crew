@@ -5,8 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.crew.ui.main.MainFragment;
-import com.crew.ui.group.CrewFragment;
-import com.crew.ui.group.TimeTableFragment;
+import com.crew.ui.crew.CrewFragment;
+import com.crew.ui.timetable.TimeTableFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
