@@ -2,6 +2,7 @@ package com.crew.ui.main;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,8 +12,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.crew.LoginActivity;
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
+import com.facebook.login.LoginManager;
+import com.facebook.login.widget.LoginButton;
 
 public class MainFragment extends Fragment {
 
@@ -26,6 +30,8 @@ public class MainFragment extends Fragment {
     private ListView mTodoListView, mNoticeListView;
     private TodoListAdapter mTodoListAdapter;
     private NoticeListAdapter mNoticeAdapter;
+
+    private Button facebookButton;
 
     public static MainFragment newInstance(int position) {
         MainFragment f = new MainFragment();
@@ -88,6 +94,18 @@ public class MainFragment extends Fragment {
         mNoticeAdapter.addItem("Crew Names", "Contents");
         mNoticeAdapter.addItem("CCC", "Our Regular meeting...");
         mNoticeAdapter.addItem("Hon-Cheon-Ui", "Next Meeting is on...");
+
+        //facebook logout
+        facebookButton = (Button) rootView.findViewById(R.id.facebookButton);
+        facebookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logOut();
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
 
         return rootView;
     }

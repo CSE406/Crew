@@ -17,6 +17,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
 import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
@@ -28,21 +29,24 @@ public class LoginActivity extends FragmentActivity {
     private Button guestButton;
     private CallbackManager callbackManager;
     private ProfileTracker profileTracker;
+    private Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
-        callbackManager = CallbackManager.Factory.create();
+        LoginManager.getInstance().logOut();
 
         setContentView(R.layout.activity_login);
+        callbackManager = CallbackManager.Factory.create();
         loginButton = (LoginButton) findViewById(R.id.facebook_login_button);
         loginButton.setReadPermissions(Arrays.asList("email"));
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        Profile profile = Profile.getCurrentProfile();
-                        Toast.makeText(getApplicationContext(), "Welcome "+profile.getName()+"!", Toast.LENGTH_LONG).show();
+                        Log.i("facebook", "loginbutton success");
+                        profile = Profile.getCurrentProfile();
+                        Toast.makeText(getApplicationContext(), "Welcome " + profile.getName() + "!", Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
