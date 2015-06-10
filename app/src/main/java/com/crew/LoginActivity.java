@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.crew.ui.MainActivity;
-import com.crew.ui.group.MainFragment;
 import com.crew.ui.material.Button;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -19,7 +18,6 @@ import com.facebook.login.widget.LoginButton;
 
 
 public class LoginActivity extends FragmentActivity {
-    private MainFragment mainFragment;
     private LoginButton loginButton;
     private Button guestButton;
     private CallbackManager callbackManager;
