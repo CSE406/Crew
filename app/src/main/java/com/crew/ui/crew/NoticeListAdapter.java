@@ -1,4 +1,4 @@
-package com.crew.ui.main;
+package com.crew.ui.crew;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.crew.R;
 
 import java.util.ArrayList;
+
+import util.ViewHolder;
 
 /**
  * Created by hyeon-seob on 15. 3. 4..
@@ -29,10 +31,10 @@ public class NoticeListAdapter extends BaseAdapter{
         this.mContext = mContext;
     }
 
-    public void addItem(String _crewName, String _content){
+    public void addItem(String _importance, String _title){
         NoticeData temp = new NoticeData();
-        temp.crewName = _crewName;
-        temp.content = _content;
+        temp.importance = _importance;
+        temp.title = _title;
         mListData.add(temp);
     }
 
@@ -54,8 +56,12 @@ public class NoticeListAdapter extends BaseAdapter{
 
         final NoticeData mData = mListData.get(position);
 
-        holder.column1TextView.setText(mData.crewName);
-        holder.column2TextView.setText(mData.content);
+        holder.column1TextView.setText(mData.importance);
+        holder.column2TextView.setText(mData.title);
+
+        if(position != 0) {
+
+        }
 
         return convertView;
     }

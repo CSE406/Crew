@@ -75,15 +75,6 @@ public class CrewFragment extends Fragment {
         mCrewListAdapter.addItem("Class", "Software Engineering Class");
         mCrewListAdapter.addItem("Team", "Meeting Group");
 
-        mTodayListAdapter = new TodayListAdapter(getActivity());
-        mTodayListView = (ListView) rootView.findViewById(R.id.crewTodayListView);
-        mTodayListView.setAdapter(mTodayListAdapter);
-
-        mTodayListAdapter.addItem("TIME", "Location", "Contents");
-        mTodayListAdapter.addItem("10:30", "Y05-301", "Our Regular Meeting..");
-        mTodayListAdapter.addItem("12:00", "Y05-301", "Next Meeting is on..");
-        mTodayListAdapter.addItem("3:00", "Andante", "Special Party");
-
         return rootView;
     }
 }

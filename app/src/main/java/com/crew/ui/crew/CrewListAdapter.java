@@ -1,7 +1,7 @@
 package com.crew.ui.crew;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +63,10 @@ public class CrewListAdapter extends BaseAdapter{
             holder.column2TextView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.e("GroupDetail", "그룹 디테일 화면으로 넘어가야함." + ((TextView)v).getText());
+                    Intent intent = new Intent(mContext, CrewDetailActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("crewName", ((TextView)v).getText());
+                    mContext.startActivity(intent);
                 }
             });
         }

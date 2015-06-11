@@ -1,4 +1,4 @@
-package com.crew.ui.main;
+package com.crew.ui.crew;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -17,45 +17,52 @@ import java.util.ArrayList;
  * addItem()으로 리스트에 곡 추가
  */
 
-public class NoticeListAdapter extends BaseAdapter{
+public class MemberListAdapter extends BaseAdapter{
 
     private int userId;
     private Context mContext = null;
-    private ArrayList<NoticeData> mListData = new ArrayList<>();
-    private ViewHolder holder;
+    private ArrayList<MemberData> mListData = new ArrayList<>();
+    private ViewHolder2 holder;
 
-    public NoticeListAdapter(Context mContext) {
+    public MemberListAdapter(Context mContext) {
         super();
         this.mContext = mContext;
     }
 
-    public void addItem(String _crewName, String _content){
-        NoticeData temp = new NoticeData();
-        temp.crewName = _crewName;
-        temp.content = _content;
+    public void addItem(String _name, String _role, String _email){
+        MemberData temp = new MemberData();
+        temp.name = _name;
+        temp.role = _role;
+        temp.email = _email;
         mListData.add(temp);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            holder = new ViewHolder();
+            holder = new ViewHolder2();
 
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.list_item_notice, null);
+            convertView = inflater.inflate(R.layout.list_item_member, null);
 
             holder.column1TextView = (TextView) convertView.findViewById(R.id.nameTextView);
-            holder.column2TextView = (TextView) convertView.findViewById(R.id.contentTextView);
+            holder.column2TextView = (TextView) convertView.findViewById(R.id.roleTextView);
+            holder.column3TextView = (TextView) convertView.findViewById(R.id.emailTextView);
 
             convertView.setTag(holder);
         }else{
-            holder = (ViewHolder) convertView.getTag();
+            holder = (ViewHolder2) convertView.getTag();
         }
 
-        final NoticeData mData = mListData.get(position);
+        final MemberData mData = mListData.get(position);
 
-        holder.column1TextView.setText(mData.crewName);
-        holder.column2TextView.setText(mData.content);
+        holder.column1TextView.setText(mData.name);
+        holder.column2TextView.setText(mData.role);
+        holder.column3TextView.setText(mData.email);
+
+        if(position != 0) {
+
+        }
 
         return convertView;
     }
@@ -66,7 +73,7 @@ public class NoticeListAdapter extends BaseAdapter{
     }
 
     @Override
-    public NoticeData getItem(int position) {
+    public MemberData getItem(int position) {
         return mListData.get(position);
     }
 
