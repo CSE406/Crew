@@ -52,6 +52,10 @@
             android:name=".ui.crew.CrewDetailActivity"
             android:label="@string/title_activity_crew_detail" >
         </activity>
+        <activity
+            android:name=".ui.crew.NoticeDetailActivity"
+            android:label="@string/title_activity_notice_detail" >
+        </activity>
     </application>
 
 </manifest>

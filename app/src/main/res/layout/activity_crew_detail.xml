@@ -43,8 +43,8 @@
             android:text="Today's"
             android:textColor="@android:color/black" />
 
-        <TextView
-            android:id="@+id/crewWeekTextView"
+        <Button
+            android:id="@+id/crewWeekButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -76,6 +76,19 @@
             android:layout_marginLeft="30dp"
             android:background="@drawable/border_black"
             android:text="Notice"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/addNoticeButton"
+            android:layout_below="@id/crewTodayListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/border_black"
+            android:text="Add Notice"
             android:textColor="@android:color/black" />
 
         <ListView
@@ -213,6 +226,419 @@
             android:textColor="@android:color/black"
             android:layout_marginTop="40dp"/>
 
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/informationLayout"
+        android:layout_below="@+id/crewNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/informationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="#EEEEEE"
+            android:text="information"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/informaitonNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/informationTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:text="Name : 크루"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/informationDivisionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/informaitonNameTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:text="Division : 팀"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/informationLeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/informationDivisionTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:text="Leader : 임하영"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/informationExplainTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/informationLeaderTextView"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:text="Explain : 혼천의라네~ 혼천의라네~"
+            android:textColor="#000000"
+            android:textSize="15dp"
+            android:typeface="sans" />
+
+        <Button
+            android:id="@+id/closeButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1.0"
+            android:background="#EEEEEE"
+            android:text="OK"
+            android:textColor="#000000"
+            android:textSize="10dp"
+            android:typeface="sans" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/optionLayout"
+        android:layout_below="@+id/crewNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/option_option_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/option_crew_name"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/layout"
+            android:text="Option"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:typeface="sans" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/option_option_text"
+            android:layout_centerHorizontal="true">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/text_notice_show"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notice Show"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:typeface="sans" />
+
+                <android.support.v7.internal.widget.TintCheckBox
+                    android:id="@+id/option_notice_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:layout_marginLeft="100dp"/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/text_timetable_share"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Timetable Show"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:typeface="sans" />
+
+                <android.support.v7.internal.widget.TintCheckBox
+                    android:id="@+id/option_timetable_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:layout_marginLeft="100dp"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="50dp"
+            android:layout_centerHorizontal="true">
+            <TableRow>
+
+                <Button
+                    android:id="@+id/saveOptionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#ffffff"
+                    android:text="Save"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:typeface="sans" />
+
+
+                <Button
+                    android:id="@+id/closeButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:background="#ffffff"
+                    android:text="Cancel"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:typeface="sans" />
+            </TableRow>
+        </TableLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/addNoticeLayout"
+        android:layout_below="@+id/crewNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/inputLayout"
+            android:layout_below="@+id/makeCrewTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:padding="10dp"
+                    android:background="@drawable/border_black"
+                    android:gravity="center"
+                    android:text="Name"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:padding="10dp"
+                    android:background="@drawable/border_black"
+                    android:gravity="center"
+                    android:text="Division"
+                    android:textColor="@android:color/black"/>
+
+                <EditText
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border_black"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:padding="10dp"
+                android:background="@drawable/border_black"
+                android:gravity="center"
+                android:text="Explain"
+                android:textColor="@android:color/black"/>
+
+
+            <EditText
+                android:id="@+id/crewlistTextView"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@drawable/border_black"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/inputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/saveCrewButton"
+                android:layout_below="@id/crewlistTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:background="@drawable/border_black"
+                android:text="SAVE"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/closeButton5"
+                android:layout_below="@id/crewlistTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="30dp"
+                android:padding="10dp"
+                android:background="@drawable/border_black"
+                android:text="CANCEL"
+                android:textColor="@android:color/black" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/authorLayout"
+        android:layout_below="@+id/crewNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/author_text_authorize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/layout"
+            android:text="Authorize"
+            android:textColor="#000000"
+            android:textSize="25dp"
+            android:typeface="sans" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/author_text_authorize"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true">
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/text_author1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="You give(or deprive) Authority of Staff to"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/author_list1"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="컨텍스트인가"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="100dp"/>
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/text_author2"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:text="You turn over all your rights of Crew`s to"
+                    android:textColor="#000000"
+                    android:textSize="20dp"
+                    android:typeface="sans" />
+
+                <TextView
+                    android:id="@+id/author_list2"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="아니면 리스트메뉴아이템뷰인가"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="100dp"/>
+            </TableRow>
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true">
+            <TableRow>
+
+                <Button
+                    android:id="@+id/author_button_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#ffffff"
+                    android:text="Ok"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:typeface="sans" />
+
+
+                <Button
+                    android:id="@+id/closeButton6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:background="#ffffff"
+                    android:text="Cancel"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:typeface="sans" />
+            </TableRow>
+        </TableLayout>
 
     </RelativeLayout>
 

@@ -17,12 +17,15 @@ import com.crew.ui.material.FloatingActionButton;
 
 public class CrewDetailActivity extends ActionBarActivity {
 
-    private RelativeLayout mCrewDetailLayout, mMemberLayout, mLeadersLayout;
+    private RelativeLayout mCrewDetailLayout, mAddNoticeLayout, mMemberLayout, mInformationLayout,
+            mOptionLayout, mLeadersLayout, mAuthorLayout;
     private ListView mTodayListView, mNoticeListView, mMemberListView;
     private MemberListAdapter mMemberListAdapter;
     private TodayListAdapter mTodayListAdapter;
     private NoticeListAdapter mNoticeListAdapter;
-    private Button mInviteButton, mChangeButton, mDeleteButton, mCloseButton, mCloseButton2;
+    private Button mAddNoticeButton,
+            mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton,
+            mCloseButton, mCloseButton2, mCloseButton3, mCloseButton4, mCloseButton5, mCloseButton6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +45,12 @@ public class CrewDetailActivity extends ActionBarActivity {
         });
 
         mCrewDetailLayout = (RelativeLayout) findViewById(R.id.crewDetailLayout);
+        mAddNoticeLayout = (RelativeLayout) findViewById(R.id.addNoticeLayout);
         mMemberLayout = (RelativeLayout) findViewById(R.id.memberLayout);
+        mInformationLayout = (RelativeLayout) findViewById(R.id.informationLayout);
+        mOptionLayout = (RelativeLayout) findViewById(R.id.optionLayout);
         mLeadersLayout = (RelativeLayout) findViewById(R.id.leadersLayout);
+        mAuthorLayout = (RelativeLayout) findViewById(R.id.authorLayout);
 
         mTodayListAdapter = new TodayListAdapter(this);
         mTodayListView = (ListView) findViewById(R.id.crewTodayListView);
@@ -53,6 +60,24 @@ public class CrewDetailActivity extends ActionBarActivity {
         mTodayListAdapter.addItem("10:30", "Y05-301", "Our Regular Meeting..");
         mTodayListAdapter.addItem("12:00", "Y05-301", "Next Meeting is on..");
         mTodayListAdapter.addItem("3:00", "Andante", "Special Party");
+
+        mAddNoticeButton = (Button) findViewById(R.id.addNoticeButton);
+        mAddNoticeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCrewDetailLayout.setVisibility(View.GONE);
+                mAddNoticeLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mCloseButton5 = (Button) findViewById(R.id.closeButton5);
+        mCloseButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAddNoticeLayout.setVisibility(View.GONE);
+                mCrewDetailLayout.setVisibility(View.VISIBLE);
+            }
+        });
 
         mNoticeListAdapter = new NoticeListAdapter(this);
         mNoticeListView = (ListView) findViewById(R.id.crewNoticeListView);
@@ -83,6 +108,28 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
+        // Information
+
+        mCloseButton3 = (Button) findViewById(R.id.closeButton3);
+        mCloseButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mInformationLayout.setVisibility(View.GONE);
+                mCrewDetailLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        // Option
+
+        mCloseButton4 = (Button) findViewById(R.id.closeButton4);
+        mCloseButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOptionLayout.setVisibility(View.GONE);
+                mCrewDetailLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
         // Leaders
 
         mInviteButton = (Button) findViewById(R.id.inviteButton);
@@ -106,6 +153,24 @@ public class CrewDetailActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 DialogDelete();
+            }
+        });
+
+        mAuthorizeButton = (Button) findViewById(R.id.authorizeButton);
+        mAuthorizeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mLeadersLayout.setVisibility(View.GONE);
+                mAuthorLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        mCloseButton6 = (Button) findViewById(R.id.closeButton6);
+        mCloseButton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuthorLayout.setVisibility(View.GONE);
+                mLeadersLayout.setVisibility(View.VISIBLE);
             }
         });
 
@@ -153,9 +218,11 @@ public class CrewDetailActivity extends ActionBarActivity {
                     mCrewDetailLayout.setVisibility(View.GONE);
                     mMemberLayout.setVisibility(View.VISIBLE);
                 } else if (mainMenu[item] == mainMenu[1]) {
-
+                    mCrewDetailLayout.setVisibility(View.GONE);
+                    mInformationLayout.setVisibility(View.VISIBLE);
                 } else if (mainMenu[item] == mainMenu[2]) {
-
+                    mCrewDetailLayout.setVisibility(View.GONE);
+                    mOptionLayout.setVisibility(View.VISIBLE);
                 } else if (mainMenu[item] == mainMenu[3]) {
                     mCrewDetailLayout.setVisibility(View.GONE);
                     mLeadersLayout.setVisibility(View.VISIBLE);

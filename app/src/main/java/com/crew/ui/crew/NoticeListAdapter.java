@@ -1,6 +1,7 @@
 package com.crew.ui.crew;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,15 @@ public class NoticeListAdapter extends BaseAdapter{
         holder.column2TextView.setText(mData.title);
 
         if(position != 0) {
-
+            holder.column2TextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, NoticeDetailActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("notice", ((TextView)v).getText());
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
         return convertView;
