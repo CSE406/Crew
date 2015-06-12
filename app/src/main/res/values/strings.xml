@@ -18,4 +18,5 @@
     <string name="title_activity_group">GroupActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_crew_detail">CrewDetailActivity</string>
+    <string name="title_activity_notice_detail">NoticeDetailActivity</string>
 </resources>
