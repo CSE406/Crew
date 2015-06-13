@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,9 +24,9 @@ public class CrewDetailActivity extends ActionBarActivity {
     private MemberListAdapter mMemberListAdapter;
     private TodayListAdapter mTodayListAdapter;
     private NoticeListAdapter mNoticeListAdapter;
-    private Button mAddNoticeButton,
-            mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton,
-            mCloseButton, mCloseButton2, mCloseButton3, mCloseButton4, mCloseButton5, mCloseButton6;
+    private Button mCloseButton5, mCloseButton6;
+    private CardView mAddNoticeButton, mCloseAddNoticeButton, mCloseMemberButon, mCloseInformaitonButton,
+            mCloseOptionButton, mCloseLeaderButton, mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +57,11 @@ public class CrewDetailActivity extends ActionBarActivity {
         mTodayListView = (ListView) findViewById(R.id.crewTodayListView);
         mTodayListView.setAdapter(mTodayListAdapter);
 
-        mTodayListAdapter.addItem("TIME", "Location", "Contents");
         mTodayListAdapter.addItem("10:30", "Y05-301", "Our Regular Meeting..");
         mTodayListAdapter.addItem("12:00", "Y05-301", "Next Meeting is on..");
         mTodayListAdapter.addItem("3:00", "Andante", "Special Party");
 
-        mAddNoticeButton = (Button) findViewById(R.id.addNoticeButton);
+        mAddNoticeButton = (CardView) findViewById(R.id.addNoticeButton);
         mAddNoticeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,8 +70,8 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
-        mCloseButton5 = (Button) findViewById(R.id.closeButton5);
-        mCloseButton5.setOnClickListener(new View.OnClickListener() {
+        mCloseAddNoticeButton = (CardView) findViewById(R.id.closeAddNoticeButton);
+        mCloseAddNoticeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAddNoticeLayout.setVisibility(View.GONE);
@@ -83,7 +83,9 @@ public class CrewDetailActivity extends ActionBarActivity {
         mNoticeListView = (ListView) findViewById(R.id.crewNoticeListView);
         mNoticeListView.setAdapter(mNoticeListAdapter);
 
-        mNoticeListAdapter.addItem("Importance", "Title");
+        mNoticeListAdapter.addItem("1st", "Plz..make some Problem");
+        mNoticeListAdapter.addItem("2nd", "I Hate This Project!");
+        mNoticeListAdapter.addItem("3rd", "What the Fuck!");
         mNoticeListAdapter.addItem("1st", "Plz..make some Problem");
         mNoticeListAdapter.addItem("2nd", "I Hate This Project!");
         mNoticeListAdapter.addItem("3rd", "What the Fuck!");
@@ -94,13 +96,18 @@ public class CrewDetailActivity extends ActionBarActivity {
         mMemberListView = (ListView) findViewById(R.id.memberListView);
         mMemberListView.setAdapter(mMemberListAdapter);
 
-        mMemberListAdapter.addItem("Name", "Role", "E-mail");
+        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
+        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
+        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
+        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
+        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
+        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
         mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
         mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
         mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
 
-        mCloseButton2 = (Button) findViewById(R.id.closeButton2);
-        mCloseButton2.setOnClickListener(new View.OnClickListener() {
+        mCloseMemberButon = (CardView) findViewById(R.id.closeMemberButton);
+        mCloseMemberButon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mMemberLayout.setVisibility(View.GONE);
@@ -110,8 +117,8 @@ public class CrewDetailActivity extends ActionBarActivity {
 
         // Information
 
-        mCloseButton3 = (Button) findViewById(R.id.closeButton3);
-        mCloseButton3.setOnClickListener(new View.OnClickListener() {
+        mCloseInformaitonButton = (CardView) findViewById(R.id.closeInformationButton);
+        mCloseInformaitonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mInformationLayout.setVisibility(View.GONE);
@@ -121,8 +128,8 @@ public class CrewDetailActivity extends ActionBarActivity {
 
         // Option
 
-        mCloseButton4 = (Button) findViewById(R.id.closeButton4);
-        mCloseButton4.setOnClickListener(new View.OnClickListener() {
+        mCloseOptionButton = (CardView) findViewById(R.id.closeOptionButton);
+        mCloseOptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mOptionLayout.setVisibility(View.GONE);
@@ -132,7 +139,7 @@ public class CrewDetailActivity extends ActionBarActivity {
 
         // Leaders
 
-        mInviteButton = (Button) findViewById(R.id.inviteButton);
+        mInviteButton = (CardView) findViewById(R.id.inviteButton);
         mInviteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,7 +147,7 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
-        mChangeButton = (Button) findViewById(R.id.changeButton);
+        mChangeButton = (CardView) findViewById(R.id.changeButton);
         mChangeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +155,7 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
-        mDeleteButton = (Button) findViewById(R.id.deleteButton);
+        mDeleteButton = (CardView) findViewById(R.id.deleteButton);
         mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,7 +163,7 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
-        mAuthorizeButton = (Button) findViewById(R.id.authorizeButton);
+        mAuthorizeButton = (CardView) findViewById(R.id.authorizeButton);
         mAuthorizeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,8 +181,8 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
-        mCloseButton = (Button) findViewById(R.id.closeButton);
-        mCloseButton.setOnClickListener(new View.OnClickListener() {
+        mCloseLeaderButton = (CardView) findViewById(R.id.closeLeaderButton);
+        mCloseLeaderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mLeadersLayout.setVisibility(View.GONE);

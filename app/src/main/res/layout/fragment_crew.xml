@@ -8,53 +8,108 @@
         android:id="@+id/crewLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/whiteSmoke"
         android:visibility="visible">
 
         <TextView
             android:id="@+id/crewlistTextView"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:gravity="center"
-            android:text="Crew List"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="15dp"/>
-
-        <Button
-            android:id="@+id/addCrewButton"
-            android:layout_below="@id/crewlistTextView"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="30dp"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Make new Crew"
-            android:textColor="@android:color/black" />
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Crew List"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <ListView
-            android:id="@+id/crewListView"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginLeft="20dp"
+        <com.crew.ui.material.FloatingActionButton
+            android:id="@+id/addCrewButton"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:textSize="24sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/addCrewButton"
-            android:layout_centerHorizontal="true">
-        </ListView>
+            android:layout_marginBottom="25dp" />
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/crewlistCardView"
+            android:layout_below="@+id/crewlistTextView"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/white"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:divider="?android:listDivider"
+                    android:dividerPadding="2.5dp"
+                    android:showDividers="middle"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="DIV"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Crew Name"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/crewListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:divider="@color/whiteSmoke"
+                    android:dividerHeight="1dp"
+                    android:layout_centerHorizontal="true">
+                </ListView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/articleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/crewListView"
+            android:layout_below="@+id/crewlistCardView"
             android:text=" We have many activities in our\nlife. And we like to meet other,\nwho have same hobby and same\n goals. We called this group to"
             android:textColor="@android:color/black"
             android:textSize="16sp"
+            android:fontFamily="sans-serif-thin"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"/>
 
@@ -63,12 +118,13 @@
             android:layout_below="@+id/articleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Crew."
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="30sp"
+            android:layout_margin="15dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"/>
+            android:text="Crew."
+            android:textSize="30sp"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-bold"
+            android:layout_gravity="center"/>
 
     </RelativeLayout>
 
@@ -80,19 +136,14 @@
 
         <TextView
             android:id="@+id/makeCrewTextView"
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:gravity="center"
+            android:layout_margin="15dp"
             android:text="Make Crew"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="15dp"/>
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        
         <LinearLayout
             android:id="@+id/inputLayout"
             android:layout_below="@+id/makeCrewTextView"
@@ -100,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="15dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -112,17 +163,29 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="35dp"
-                    android:padding="10dp"
-                    android:background="@drawable/border_black"
+                    android:padding="5dp"
                     android:gravity="center"
                     android:text="Name"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@color/purple_800"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="18sp"/>
 
-                <EditText
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="180dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/border_black"
-                    android:textColor="@android:color/black"/>
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    card_view:cardCornerRadius="4dp">
+
+                    <android.support.v7.internal.widget.TintEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/purple_300"
+                        android:hint="Input Crew's Name" />
+
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
@@ -135,39 +198,60 @@
                 <TextView
                     android:layout_width="80dp"
                     android:layout_height="35dp"
-                    android:padding="10dp"
-                    android:background="@drawable/border_black"
+                    android:padding="5dp"
                     android:gravity="center"
                     android:text="Division"
-                    android:textColor="@android:color/black"/>
+                    android:textColor="@color/purple_800"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="18sp"/>
 
-                <EditText
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="180dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/border_black"
-                    android:textColor="@android:color/black"/>
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    card_view:cardCornerRadius="4dp">
+
+                    <android.support.v7.internal.widget.TintEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/purple_300"
+                        android:hint="Input Crew's Division" />
+
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
             <TextView
                 android:layout_width="80dp"
                 android:layout_height="35dp"
+                android:padding="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="25dp"
-                android:padding="10dp"
-                android:background="@drawable/border_black"
                 android:gravity="center"
                 android:text="Explain"
-                android:textColor="@android:color/black"/>
+                android:textColor="@color/purple_800"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="18sp"/>
 
-
-            <EditText
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="300dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="15dp"
                 android:layout_gravity="center"
-                android:background="@drawable/border_black"
-                android:textColor="@android:color/black"/>
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <android.support.v7.internal.widget.TintEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Introduce Your Crew!" />
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
@@ -179,26 +263,54 @@
             android:orientation="horizontal"
             android:gravity="center" >
 
-            <Button
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/saveCrewButton"
-                android:layout_below="@id/crewlistTextView"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:background="@drawable/border_black"
-                android:text="SAVE"
-                android:textColor="@android:color/black" />
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                card_view:cardBackgroundColor="@color/purple_400"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp">
 
-            <Button
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8.5dp"
+                    android:paddingBottom="8.5dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="SAVE"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/cancelCrewButton"
-                android:layout_below="@id/crewlistTextView"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="30dp"
-                android:padding="10dp"
-                android:background="@drawable/border_black"
-                android:text="CANCEL"
-                android:textColor="@android:color/black" />
+                card_view:cardBackgroundColor="@color/purple_400"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8.5dp"
+                    android:paddingBottom="8.5dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="CANCEL"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 

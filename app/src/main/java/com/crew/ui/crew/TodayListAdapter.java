@@ -60,10 +60,6 @@ public class TodayListAdapter extends BaseAdapter{
         holder.column2TextView.setText(mData.location);
         holder.column3TextView.setText(mData.content);
 
-        if(position != 0) {
-
-        }
-
         return convertView;
     }
 

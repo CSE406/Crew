@@ -60,17 +60,15 @@ public class NoticeListAdapter extends BaseAdapter{
         holder.column1TextView.setText(mData.importance);
         holder.column2TextView.setText(mData.title);
 
-        if(position != 0) {
-            holder.column2TextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, NoticeDetailActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("notice", ((TextView)v).getText());
-                    mContext.startActivity(intent);
-                }
-            });
-        }
+        holder.column2TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, NoticeDetailActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("notice", ((TextView)v).getText());
+                mContext.startActivity(intent);
+            }
+        });
 
         return convertView;
     }

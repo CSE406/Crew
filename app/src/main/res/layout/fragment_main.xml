@@ -8,69 +8,161 @@
         android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/whiteSmoke"
         android:visibility="visible">
 
         <TextView
-            android:id="@+id/todayDoingTextView"
+            android:id="@+id/crewTodayTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
+            android:layout_margin="15dp"
             android:text="Today's Doing"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <ListView
-            android:id="@+id/todoListView"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/todoCardView"
+            android:layout_below="@+id/crewTodayTextView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/todayDoingTextView"
-            android:layout_centerHorizontal="true">
-        </ListView>
+            android:layout_height="160dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@android:color/white"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:divider="?android:listDivider"
+                    android:dividerPadding="2.5dp"
+                    android:showDividers="middle"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Time"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Doing"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/todoListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:divider="@color/whiteSmoke"
+                    android:dividerHeight="1dp"
+                    android:layout_centerHorizontal="true">
+                </ListView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/noticeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/todoListView"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
+            android:layout_below="@+id/todoCardView"
             android:text="Crew's Notice"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"/>
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_margin="10dp"/>
 
-        <ListView
-            android:id="@+id/noticeListView"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/noticeCardView"
             android:layout_below="@+id/noticeTextView"
-            android:layout_centerHorizontal="true">
-        </ListView>
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@android:color/white"
+            card_view:cardCornerRadius="4dp">
 
-        <com.crew.ui.material.FloatingActionButton
-            android:id="@+id/mainMenuButton"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="16dp"
-            android:textSize="24sp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="25dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:divider="?android:listDivider"
+                    android:dividerPadding="2.5dp"
+                    android:showDividers="middle"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Crew Names"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Contents"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/noticeListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:divider="@color/whiteSmoke"
+                    android:dividerHeight="1dp"
+                    android:layout_centerHorizontal="true">
+                </ListView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
@@ -85,13 +177,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@drawable/border_black"
             android:text="Team Hon-Cheon-Ui"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:id="@+id/memberTextView"
@@ -99,11 +190,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Members"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:textColor="@color/purple_800"
+            android:fontFamily="sans-serif-condensed"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"/>
 
         <LinearLayout
             android:id="@+id/memberListTextView"
@@ -113,13 +204,14 @@
             android:orientation="vertical"
             android:gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lee Dong-jun, Lee Sang-wo"
                 android:textColor="@android:color/black"
+                android:fontFamily="sans-serif"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceMedium"/>
 
@@ -129,6 +221,7 @@
                 android:layout_height="wrap_content"
                 android:text="Kim Tae-yun, Seo Hyun-seob"
                 android:textColor="@android:color/black"
+                android:fontFamily="sans-serif"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -138,6 +231,7 @@
                 android:layout_height="wrap_content"
                 android:text="Lim Ha-young"
                 android:textColor="@android:color/black"
+                android:fontFamily="sans-serif"
                 android:layout_centerHorizontal="true"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -149,11 +243,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Made for"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:textColor="@color/purple_800"
+            android:fontFamily="sans-serif-condensed"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:id="@+id/SoftWareEngineeringTextView"
@@ -162,9 +256,10 @@
             android:layout_height="wrap_content"
             android:text="SoftWare Engineering"
             android:textColor="@android:color/black"
+            android:fontFamily="sans-serif"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="15dp" />
 
         <TextView
             android:id="@+id/emailTextView"
@@ -172,11 +267,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="E-mail"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:textColor="@color/purple_800"
+            android:fontFamily="sans-serif-condensed"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"/>
 
         <TextView
             android:id="@+id/crewEmailTextView"
@@ -185,21 +280,36 @@
             android:layout_height="wrap_content"
             android:text="crew@gmail.com"
             android:textColor="@android:color/black"
+            android:fontFamily="sans-serif"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="15dp" />
 
-        <Button
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/informationCloseButton"
-            android:layout_below="@id/crewEmailTextView"
+            android:layout_below="@+id/crewEmailTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Ok"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="15dp"
+            card_view:cardBackgroundColor="@color/purple_200"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Ok"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
@@ -214,10 +324,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@drawable/border_black"
             android:text="Accounts"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_marginTop="100dp"/>
@@ -234,30 +343,83 @@
             android:textColor="@android:color/black"
             android:layout_marginTop="20dp"/>
 
-        <Button
+        <android.support.v7.widget.CardView
             android:id="@+id/leavecrewButton"
-            android:layout_below="@id/facebookButton"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_below="@+id/facebookButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Leave the CREW"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="15dp"
+            card_view:cardBackgroundColor="@color/purple_500"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
 
-        <Button
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Leave the CREW"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/accountCloseButton"
-            android:layout_below="@id/leavecrewButton"
+            android:layout_below="@+id/leavecrewButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Ok"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="15dp"
+            card_view:cardBackgroundColor="@color/purple_200"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="OK"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
+
+        <!--<Button-->
+            <!--android:id="@+id/accountCloseButton"-->
+            <!--android:layout_below="@id/leavecrewButton"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:padding="10dp"-->
+            <!--android:background="@drawable/border_black"-->
+            <!--android:text="Ok"-->
+            <!--android:textColor="@android:color/black"-->
+            <!--android:layout_marginTop="40dp"/>-->
 
     </RelativeLayout>
+
+    <com.crew.ui.material.FloatingActionButton
+        android:id="@+id/mainMenuButton"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:textSize="24sp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="25dp" />
 
 </FrameLayout>

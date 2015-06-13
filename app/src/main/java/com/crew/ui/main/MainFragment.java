@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,6 @@ import com.crew.LoginActivity;
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
 import com.facebook.login.LoginManager;
-import com.facebook.login.widget.LoginButton;
 
 public class MainFragment extends Fragment {
 
@@ -25,7 +25,7 @@ public class MainFragment extends Fragment {
     private int position;
 
     private RelativeLayout mMainLayout, mInfromationLayout, mAccountLayout;
-    private Button mInformationCloseButton, mAccountCloseButton;
+    private CardView mInformationCloseButton, mAccountCloseButton;
 
     private ListView mTodoListView, mNoticeListView;
     private TodoListAdapter mTodoListAdapter;
@@ -60,7 +60,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        mInformationCloseButton = (Button) rootView.findViewById(R.id.informationCloseButton);
+        mInformationCloseButton = (CardView) rootView.findViewById(R.id.informationCloseButton);
         mInformationCloseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +69,7 @@ public class MainFragment extends Fragment {
             }
         });
 
-        mAccountCloseButton = (Button) rootView.findViewById(R.id.accountCloseButton);
+        mAccountCloseButton = (CardView) rootView.findViewById(R.id.accountCloseButton);
         mAccountCloseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,16 +82,16 @@ public class MainFragment extends Fragment {
         mTodoListView = (ListView) rootView.findViewById(R.id.todoListView);
         mTodoListView.setAdapter(mTodoListAdapter);
 
-        mTodoListAdapter.addItem("Time", "Doing");
         mTodoListAdapter.addItem("3:00 - 10:30", "Software Engineering");
         mTodoListAdapter.addItem("12:00 - 13:00", "Meeting Somewhere");
         mTodoListAdapter.addItem("15:00 - 17:00", "Crew Activity");
+        mTodoListAdapter.addItem("19:00 - 21:00", "Assignment");
 
         mNoticeAdapter = new NoticeListAdapter(getActivity());
         mNoticeListView = (ListView) rootView.findViewById(R.id.noticeListView);
         mNoticeListView.setAdapter(mNoticeAdapter);
 
-        mNoticeAdapter.addItem("Crew Names", "Contents");
+        mNoticeAdapter.addItem("My Prescience", "BigData Music Recommend...");
         mNoticeAdapter.addItem("CCC", "Our Regular meeting...");
         mNoticeAdapter.addItem("Hon-Cheon-Ui", "Next Meeting is on...");
 

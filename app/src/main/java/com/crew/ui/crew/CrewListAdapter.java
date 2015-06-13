@@ -59,17 +59,15 @@ public class CrewListAdapter extends BaseAdapter{
         holder.column1TextView.setText(mData.div);
         holder.column2TextView.setText(mData.name);
 
-        if(position != 0) {
-            holder.column2TextView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, CrewDetailActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.putExtra("crewName", ((TextView)v).getText());
-                    mContext.startActivity(intent);
+        holder.column2TextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, CrewDetailActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("crewName", ((TextView)v).getText());
+                mContext.startActivity(intent);
                 }
-            });
-        }
+        });
 
         return convertView;
     }

@@ -8,180 +8,437 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimaryDark"/>
+        android:background="?attr/colorPrimaryDark">
 
-    <TextView
-        android:id="@+id/crewNameTextView"
-        android:layout_below="@+id/toolbar"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/border_black"
-        android:gravity="center"
-        android:text="Crew Name"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/crewNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Crew Name"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-thin"
+            android:layout_gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:id="@+id/crewDetailLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/crewNameTextView"
+        android:layout_below="@+id/toolbar"
+        android:padding="15dp"
         android:visibility="visible">
 
         <TextView
             android:id="@+id/crewTodayTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/border_black"
+            android:paddingTop="8.5dp"
+            android:paddingBottom="8.5dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
             android:text="Today's"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/purple_800"
+            android:fontFamily="sans-serif"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        <Button
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/crewWeekButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginTop="15dp"
             android:layout_marginRight="30dp"
             android:layout_alignParentRight="true"
-            android:background="@drawable/border_black"
-            android:text="Week's"
-            android:textColor="@android:color/black" />
+            card_view:cardBackgroundColor="@color/purple_400"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
 
-        <ListView
-            android:id="@+id/crewTodayListView"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Week's"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/crewTodayCardView"
             android:layout_below="@+id/crewTodayTextView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true">
-        </ListView>
+            android:layout_height="160dp"
+            android:layout_margin="15dp"
+            android:background="@android:color/white"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:divider="?android:listDivider"
+                    android:dividerPadding="2.5dp"
+                    android:showDividers="middle"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Time"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Location"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Contents"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/crewTodayListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:divider="@color/whiteSmoke"
+                    android:dividerHeight="1dp"
+                    android:layout_centerHorizontal="true">
+                </ListView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:id="@+id/crewNoticeTextView"
-            android:layout_below="@id/crewTodayListView"
+            android:layout_below="@id/crewTodayCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/border_black"
+            android:paddingTop="8.5dp"
+            android:paddingBottom="8.5dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
             android:text="Notice"
-            android:textColor="@android:color/black" />
+            android:textColor="@color/purple_800"
+            android:fontFamily="sans-serif"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        <Button
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/addNoticeButton"
-            android:layout_below="@id/crewTodayListView"
+            android:layout_below="@id/crewTodayCardView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_alignParentRight="true"
-            android:padding="10dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/border_black"
-            android:text="Add Notice"
-            android:textColor="@android:color/black" />
+            card_view:cardBackgroundColor="@color/purple_400"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
 
-        <ListView
-            android:id="@+id/crewNoticeListView"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Add Notice"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/noticeCardView"
             android:layout_below="@+id/crewNoticeTextView"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true">
-        </ListView>
+            android:layout_height="160dp"
+            android:layout_margin="15dp"
+            android:background="@android:color/white"
+            card_view:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:divider="?android:listDivider"
+                    android:dividerPadding="2.5dp"
+                    android:showDividers="middle"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Importance"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Title"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/crewNoticeListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:divider="@color/whiteSmoke"
+                    android:dividerHeight="1dp"
+                    android:layout_centerHorizontal="true">
+                </ListView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/leadersLayout"
-        android:layout_below="@+id/crewNameTextView"
+        android:id="@+id/addNoticeLayout"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/leadersTextView"
+            android:id="@+id/makeCrewTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Leader's"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="50dp"/>
+            android:layout_margin="15dp"
+            android:text="Make Notice"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/inviteButton"
-            android:layout_below="@id/leadersTextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/inputLayout"
+            android:layout_below="@+id/makeCrewTextView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Invite Member"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/changeButton"
-            android:layout_below="@id/inviteButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Change Member"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="20dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
 
-        <Button
-            android:id="@+id/authorizeButton"
-            android:layout_below="@id/changeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Authorization"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="20dp"/>
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:text="Name"
+                    android:textColor="@color/purple_800"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="18sp"/>
 
-        <Button
-            android:id="@+id/deleteButton"
-            android:layout_below="@id/authorizeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Delete Crew"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="20dp"/>
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    card_view:cardCornerRadius="4dp">
 
-        <Button
-            android:id="@+id/closeButton"
-            android:layout_below="@id/deleteButton"
-            android:layout_width="wrap_content"
+                    <android.support.v7.internal.widget.TintEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/purple_300"
+                        android:hint="Input Crew's Name" />
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center" >
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:text="Division"
+                    android:textColor="@color/purple_800"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textSize="18sp"/>
+
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/white"
+                    card_view:cardCornerRadius="4dp">
+
+                    <android.support.v7.internal.widget.TintEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/purple_300"
+                        android:hint="Input Crew's Division" />
+
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="25dp"
+                android:gravity="center"
+                android:text="Explain"
+                android:textColor="@color/purple_800"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="18sp"/>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@android:color/white"
+                card_view:cardCornerRadius="4dp">
+
+                <android.support.v7.internal.widget.TintEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Introduce Your Crew!" />
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/inputLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Ok"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            android:gravity="center" >
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/saveCrewButton"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                card_view:cardBackgroundColor="@color/purple_400"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8.5dp"
+                    android:paddingBottom="8.5dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="SAVE"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/closeAddNoticeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="30dp"
+                card_view:cardBackgroundColor="@color/purple_400"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8.5dp"
+                    android:paddingBottom="8.5dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:text="CANCEL"
+                    android:textColor="@android:color/white"
+                    android:fontFamily="sans-serif-condensed"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -189,7 +446,7 @@
         android:id="@+id/memberLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/crewNameTextView"
+        android:layout_below="@+id/toolbar"
         android:visibility="gone">
 
         <TextView
@@ -199,149 +456,301 @@
             android:padding="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="50dp"
-            android:background="@drawable/border_black"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
             android:text="Members"
-            android:textColor="@android:color/black" />
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-        <ListView
-            android:id="@+id/memberListView"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/crewMemberCardView"
             android:layout_below="@+id/memberTextView"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="15dp"
-            android:layout_centerHorizontal="true">
-        </ListView>
+            android:layout_height="280dp"
+            android:layout_margin="15dp"
+            android:background="@android:color/white"
+            card_view:cardCornerRadius="4dp">
 
-        <Button
-            android:id="@+id/closeButton2"
-            android:layout_below="@id/memberListView"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:divider="?android:listDivider"
+                    android:dividerPadding="2.5dp"
+                    android:showDividers="middle"
+                    android:weightSum="5">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Name"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="2"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="Role"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:gravity="center"
+                        android:background="@color/purple_200"
+                        android:text="E-mail"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="15sp"/>
+
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/memberListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp">
+                </ListView>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/closeMemberButton"
+            android:layout_below="@+id/crewMemberCardView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
-            android:background="@drawable/border_black"
-            android:text="Ok"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="40dp"/>
+            android:layout_marginLeft="30dp"
+            card_view:cardBackgroundColor="@color/purple_400"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="OK"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/informationLayout"
-        android:layout_below="@+id/crewNameTextView"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
-        <Button
+        <TextView
             android:id="@+id/informationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
-            android:layout_marginLeft="30dp"
-            android:background="#EEEEEE"
-            android:text="information"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:typeface="sans" />
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:text="Information"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-        <TextView
-            android:id="@+id/informaitonNameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:id="@+id/informaitonNameLayout"
             android:layout_below="@id/informationTextView"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
-            android:text="Name : 크루"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:typeface="sans" />
-
-        <TextView
-            android:id="@+id/informationDivisionTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/informaitonNameTextView"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name : "
+                android:textColor="@color/purple_900"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crew"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/informaitonDivisionLayout"
+            android:layout_below="@id/informaitonNameLayout"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
-            android:text="Division : 팀"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:typeface="sans" />
-
-        <TextView
-            android:id="@+id/informationLeaderTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/informationDivisionTextView"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Division : "
+                android:textColor="@color/purple_900"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Team"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/informaitonLeaderLayout"
+            android:layout_below="@id/informaitonDivisionLayout"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
-            android:text="Leader : 임하영"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:typeface="sans" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leader : "
+                android:textColor="@color/purple_900"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-condensed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hayoun Lim"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/informationExplainTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/informationLeaderTextView"
+            android:layout_below="@id/informaitonLeaderLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Explain."
+            android:textColor="@color/purple_900"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-condensed" />
+
+        <TextView
+            android:id="@+id/informationExplainDetailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/informationExplainTextView"
             android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
             android:layout_marginBottom="10dp"
-            android:text="Explain : 혼천의라네~ 혼천의라네~"
-            android:textColor="#000000"
-            android:textSize="15dp"
-            android:typeface="sans" />
+            android:text="소프트웨어공학 프로젝트팀"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif" />
 
-        <Button
-            android:id="@+id/closeButton3"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/closeInformationButton"
+            android:layout_below="@+id/informationExplainDetailTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="1.0"
-            android:background="#EEEEEE"
-            android:text="OK"
-            android:textColor="#000000"
-            android:textSize="10dp"
-            android:typeface="sans" />
+            android:layout_marginLeft="30dp"
+            card_view:cardBackgroundColor="@color/purple_400"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="OK"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"/>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/optionLayout"
-        android:layout_below="@+id/crewNameTextView"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/option_option_text"
+            android:id="@+id/optionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/option_crew_name"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/layout"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
             android:text="Option"
-            android:textColor="#000000"
-            android:textSize="25dp"
-            android:typeface="sans" />
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/option_option_text"
+            android:layout_below="@id/optionTextView"
             android:layout_centerHorizontal="true">
 
             <TableRow>
@@ -391,156 +800,219 @@
             android:layout_centerHorizontal="true">
             <TableRow>
 
-                <Button
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
                     android:id="@+id/saveOptionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#ffffff"
-                    android:text="Save"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    android:typeface="sans" />
+                    card_view:cardBackgroundColor="@color/purple_400"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="2dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8.5dp"
+                        android:paddingBottom="8.5dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Save"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"/>
 
-                <Button
-                    android:id="@+id/closeButton4"
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/closeOptionButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="30dp"
-                    android:background="#ffffff"
-                    android:text="Cancel"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    android:typeface="sans" />
+                    card_view:cardBackgroundColor="@color/purple_400"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8.5dp"
+                        android:paddingBottom="8.5dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Cancel"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"/>
+
+                </android.support.v7.widget.CardView>
+
             </TableRow>
+
         </TableLayout>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/addNoticeLayout"
-        android:layout_below="@+id/crewNameTextView"
+        android:id="@+id/leadersLayout"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
 
-        <LinearLayout
-            android:id="@+id/inputLayout"
-            android:layout_below="@+id/makeCrewTextView"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/leadersTextView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
+            android:text="Leader's"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/inviteButton"
+            android:layout_below="@id/leadersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center" >
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:padding="10dp"
-                    android:background="@drawable/border_black"
-                    android:gravity="center"
-                    android:text="Name"
-                    android:textColor="@android:color/black"/>
-
-                <EditText
-                    android:layout_width="180dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/border_black"
-                    android:textColor="@android:color/black"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center" >
-
-                <TextView
-                    android:layout_width="80dp"
-                    android:layout_height="35dp"
-                    android:padding="10dp"
-                    android:background="@drawable/border_black"
-                    android:gravity="center"
-                    android:text="Division"
-                    android:textColor="@android:color/black"/>
-
-                <EditText
-                    android:layout_width="180dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/border_black"
-                    android:textColor="@android:color/black"/>
-
-            </LinearLayout>
+            android:layout_centerHorizontal="true"
+            card_view:cardBackgroundColor="@color/purple_900"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
 
             <TextView
-                android:layout_width="80dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
-                android:padding="10dp"
-                android:background="@drawable/border_black"
-                android:gravity="center"
-                android:text="Explain"
-                android:textColor="@android:color/black"/>
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Invite Member"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
+        </android.support.v7.widget.CardView>
 
-            <EditText
-                android:id="@+id/crewlistTextView"
-                android:layout_width="300dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"
-                android:background="@drawable/border_black"
-                android:textColor="@android:color/black"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_below="@+id/inputLayout"
-            android:layout_width="match_parent"
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/changeButton"
+            android:layout_below="@id/inviteButton"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:gravity="center" >
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            card_view:cardBackgroundColor="@color/purple_700"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
 
-            <Button
-                android:id="@+id/saveCrewButton"
-                android:layout_below="@id/crewlistTextView"
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:padding="10dp"
-                android:background="@drawable/border_black"
-                android:text="SAVE"
-                android:textColor="@android:color/black" />
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Change Crew Name"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-            <Button
-                android:id="@+id/closeButton5"
-                android:layout_below="@id/crewlistTextView"
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/authorizeButton"
+            android:layout_below="@id/changeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            card_view:cardBackgroundColor="@color/purple_500"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="30dp"
-                android:padding="10dp"
-                android:background="@drawable/border_black"
-                android:text="CANCEL"
-                android:textColor="@android:color/black" />
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Authorization"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
 
-        </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/deleteButton"
+            android:layout_below="@id/authorizeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            card_view:cardBackgroundColor="@color/purple_300"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Delete Crew"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/closeLeaderButton"
+            android:layout_below="@id/deleteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            card_view:cardBackgroundColor="@color/purple_400"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardElevation="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="8.5dp"
+                android:paddingBottom="8.5dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="OK"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        </android.support.v7.widget.CardView>
 
     </RelativeLayout>
 
+
+
     <RelativeLayout
         android:id="@+id/authorLayout"
-        android:layout_below="@+id/crewNameTextView"
+        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
