@@ -8,7 +8,6 @@ import android.support.v7.widget.CardView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -24,9 +23,9 @@ public class CrewDetailActivity extends ActionBarActivity {
     private MemberListAdapter mMemberListAdapter;
     private TodayListAdapter mTodayListAdapter;
     private NoticeListAdapter mNoticeListAdapter;
-    private Button mCloseButton5, mCloseButton6;
     private CardView mAddNoticeButton, mCloseAddNoticeButton, mCloseMemberButon, mCloseInformaitonButton,
-            mCloseOptionButton, mCloseLeaderButton, mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton;
+            mCloseOptionButton, mCloseLeaderButton, mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton,
+            mCloseAuthorizeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,8 +171,8 @@ public class CrewDetailActivity extends ActionBarActivity {
             }
         });
 
-        mCloseButton6 = (Button) findViewById(R.id.closeButton6);
-        mCloseButton6.setOnClickListener(new View.OnClickListener() {
+        mCloseAuthorizeButton = (CardView) findViewById(R.id.closeAuthorizeButton);
+        mCloseAuthorizeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mAuthorLayout.setVisibility(View.GONE);

@@ -1008,8 +1008,6 @@
 
     </RelativeLayout>
 
-
-
     <RelativeLayout
         android:id="@+id/authorLayout"
         android:layout_below="@+id/toolbar"
@@ -1018,23 +1016,21 @@
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/author_text_authorize"
+            android:id="@+id/authorizeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/layout"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:textColor="@color/purple_900"
+            android:fontFamily="sans-serif-thin"
             android:text="Authorize"
-            android:textColor="#000000"
-            android:textSize="25dp"
-            android:typeface="sans" />
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/author_text_authorize"
-            android:layout_marginTop="10dp"
+            android:layout_below="@id/authorizeTextView"
+            android:layout_margin="10dp"
             android:layout_centerHorizontal="true">
 
             <TableRow>
@@ -1044,9 +1040,9 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:text="You give(or deprive) Authority of Staff to"
-                    android:textColor="#000000"
-                    android:textSize="20dp"
-                    android:typeface="sans" />
+                    android:textColor="@color/purple_700"
+                    android:fontFamily="sans-serif"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/author_list1"
@@ -1064,9 +1060,9 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:text="You turn over all your rights of Crew`s to"
-                    android:textColor="#000000"
-                    android:textSize="20dp"
-                    android:typeface="sans" />
+                    android:textColor="@color/purple_700"
+                    android:fontFamily="sans-serif"
+                    android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/author_list2"
@@ -1086,29 +1082,53 @@
             android:layout_centerHorizontal="true">
             <TableRow>
 
-                <Button
-                    android:id="@+id/author_button_ok"
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/saveAuthorizeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="#ffffff"
-                    android:text="Ok"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    android:typeface="sans" />
+                    card_view:cardBackgroundColor="@color/purple_400"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="2dp">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8.5dp"
+                        android:paddingBottom="8.5dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Save"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"/>
 
-                <Button
-                    android:id="@+id/closeButton6"
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/closeAuthorizeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
                     android:layout_marginLeft="30dp"
-                    android:background="#ffffff"
-                    android:text="Cancel"
-                    android:textColor="#000000"
-                    android:textSize="15dp"
-                    android:typeface="sans" />
+                    card_view:cardBackgroundColor="@color/purple_400"
+                    card_view:cardCornerRadius="4dp"
+                    card_view:cardElevation="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8.5dp"
+                        android:paddingBottom="8.5dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:text="Cancel"
+                        android:textColor="@android:color/white"
+                        android:fontFamily="sans-serif-condensed"/>
+
+                </android.support.v7.widget.CardView>
+
             </TableRow>
         </TableLayout>
 
