@@ -1,4 +1,4 @@
-package com.crew;
+package com.crew.ui;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.crew.ui.MainActivity;
+import com.crew.R;
 import com.crew.ui.crew.UserDTO;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -83,11 +83,11 @@ public class LoginActivity extends FragmentActivity {
                                             // If user already has been signed in
                                             if(isSignedIn(userDTO.getfacebookId()))
                                             {
-
+                                                // update user data
                                             }
                                             else
                                             {
-
+                                                // insert user data
                                             }
 
                                             Toast.makeText(getApplicationContext(),
@@ -118,6 +118,7 @@ public class LoginActivity extends FragmentActivity {
                     }
                 }
         );
+
 
         guestButton = (Button) findViewById(R.id.guest_login_button);
         guestButton.setOnClickListener(new View.OnClickListener() {
