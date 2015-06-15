@@ -5,7 +5,7 @@ package com.crew.ui.crew;
  * 곡 정보를 저장하는 클래스
  */
 public class CrewData {
-    public String id;
+    public int id;
     public String div;
     public String name;
 }
