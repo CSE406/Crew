@@ -307,6 +307,7 @@
                     <android.support.v7.internal.widget.TintEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:singleLine="true"
                         android:backgroundTint="@color/purple_300"
                         android:hint="Input Crew's Name" />
 
@@ -342,6 +343,7 @@
                     <android.support.v7.internal.widget.TintEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:singleLine="true"
                         android:backgroundTint="@color/purple_300"
                         android:hint="Input Crew's Division" />
 
@@ -391,7 +393,7 @@
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/saveCrewButton"
+                android:id="@+id/saveAddNoticeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_centerHorizontal="true"

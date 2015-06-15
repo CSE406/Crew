@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
@@ -28,7 +30,7 @@ public class CrewDetailActivity extends ActionBarActivity {
     private NoticeListAdapter mNoticeListAdapter;
     private CardView mAddNoticeButton, mCloseAddNoticeButton, mCloseMemberButon, mCloseInformaitonButton,
             /*mCloseOptionButton,*/ mCloseLeaderButton, mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton,
-            mCloseAuthorizeButton;
+            mCloseAuthorizeButton, mSaveAddNoticeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,21 @@ public class CrewDetailActivity extends ActionBarActivity {
         mTodayListAdapter.addItem("10:30", "Y05-301", "Our Regular Meeting..");
         mTodayListAdapter.addItem("12:00", "Y05-301", "Next Meeting is on..");
         mTodayListAdapter.addItem("3:00", "Andante", "Special Party");
+
+        mSaveAddNoticeButton = (CardView) findViewById(R.id.saveAddNoticeButton);
+        mSaveAddNoticeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("Save", "수정내용 저장.");
+                // 수정 후 메시지 출력
+                Toast.makeText(getBaseContext(), "수정내용 저장", Toast.LENGTH_LONG).show();
+                // 수정한 값을 전달하는 쿼리문 전달
+
+                // 종료
+                mAddNoticeLayout.setVisibility(View.GONE);
+                mCrewDetailLayout.setVisibility(View.VISIBLE);
+            }
+        });
 
         mAddNoticeButton = (CardView) findViewById(R.id.addNoticeButton);
         mAddNoticeButton.setOnClickListener(new View.OnClickListener() {

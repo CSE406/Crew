@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import com.crew.R;
 public class NoticeDetailActivity extends ActionBarActivity {
 
     private CardView mSaveButton, mCancelButton;
+    private EditText mCrewNameEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +29,20 @@ public class NoticeDetailActivity extends ActionBarActivity {
         TextView noticeDetailTitle = (TextView) findViewById(R.id.crewNameTextView);
         noticeDetailTitle.setText(name);
 
+        mCrewNameEditText = (EditText) findViewById(R.id.crewNameEditText);
+        mCrewNameEditText.setText(name);
+
         mSaveButton = (CardView) findViewById(R.id.saveAddNoticeButton);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.e("Save", "수정내용 저장.");
+                // 수정 후 메시지 출력
                 Toast.makeText(getBaseContext(), "수정내용 저장", Toast.LENGTH_LONG).show();
+                // 수정한 값을 전달하는 쿼리문 전달
+
+                // 종료
+                finish();
             }
         });
 
@@ -40,6 +50,7 @@ public class NoticeDetailActivity extends ActionBarActivity {
         mCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // 아무런 행동없이 Activity 종료.
                 finish();
             }
         });
