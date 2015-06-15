@@ -37,4 +37,8 @@
 
     <color name="whiteSmoke">#F5F5F5</color>
 
+    <!-- Timetable -->
+    <color name = "timetable_color">#FFFFFF</color>
+    <color name = "timetable_text_color">#000000</color>
+
 </resources>

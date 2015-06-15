@@ -56,6 +56,14 @@
             android:name=".ui.crew.NoticeDetailActivity"
             android:label="@string/title_activity_notice_detail" >
         </activity>
+        <activity
+            android:name=".ui.timetable.InsertActivity"
+            android:label="@string/title_activity_insert" >
+        </activity>
+        <activity
+            android:name=".ui.timetable.MidOptionActivity"
+            android:label="@string/title_activity_mid_option" >
+        </activity>
     </application>
 
 </manifest>

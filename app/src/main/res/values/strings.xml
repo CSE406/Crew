@@ -14,9 +14,16 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_time_table">TimeTableActivity</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_group">GroupActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_crew_detail">CrewDetailActivity</string>
     <string name="title_activity_notice_detail">NoticeDetailActivity</string>
+
+
+    <string name="title_activity_insert">InsertActivity</string>
+    <string name="title_activity_mid_option">MidOptionActivity</string>
+    <string name="spinnerPrompt3">Choose Date!</string>
+    <string name="spinnerPrompt4">Choose StartTime!</string>
+    <string name="spinnerPrompt5">Choose EndTime!</string>
+
 </resources>
