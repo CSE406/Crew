@@ -31,8 +31,9 @@ public class CrewListAdapter extends BaseAdapter{
         this.mContext = mContext;
     }
 
-    public void addItem(String _div, String _name){
+    public void addItem(int _id, String _div, String _name){
         CrewData temp = new CrewData();
+        temp.id = _id;
         temp.div = _div;
         temp.name = _name;
         mListData.add(temp);
@@ -58,12 +59,14 @@ public class CrewListAdapter extends BaseAdapter{
 
         holder.column1TextView.setText(mData.div);
         holder.column2TextView.setText(mData.name);
+        holder.column2TextView.setTag(mData.id);
 
         holder.column2TextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, CrewDetailActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("group_id", (int) ((TextView)v).getTag());
                 intent.putExtra("crewName", ((TextView)v).getText());
                 mContext.startActivity(intent);
                 }

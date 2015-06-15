@@ -15,7 +15,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Crew Name"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-thin"
             android:layout_gravity="center"
@@ -35,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Make Notice"
+            android:text="Modify Notice"
             android:textColor="@color/purple_900"
             android:fontFamily="sans-serif-thin"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -76,9 +75,11 @@
                     card_view:cardCornerRadius="4dp">
 
                     <android.support.v7.internal.widget.TintEditText
+                        android:id="@+id/crewNameEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/purple_300"
+                        android:singleLine="true"
                         android:hint="Input Crew's Name" />
 
                 </android.support.v7.widget.CardView>
@@ -114,6 +115,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/purple_300"
+                        android:singleLine="true"
                         android:hint="Input Crew's Division" />
 
                 </android.support.v7.widget.CardView>
@@ -162,7 +164,7 @@
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/saveCrewButton"
+                android:id="@+id/saveAddNoticeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="45dp"
                 android:layout_centerHorizontal="true"
