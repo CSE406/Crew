@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
@@ -36,13 +37,13 @@ public class CrewDetailActivity extends ActionBarActivity {
     private int GROUP_ID;
 
     private RelativeLayout mCrewDetailLayout, mAddNoticeLayout, mMemberLayout, mInformationLayout,
-            mOptionLayout, mLeadersLayout, mAuthorLayout;
+    /*mOptionLayout,*/ mLeadersLayout, mAuthorLayout;
     private ListView mTodayListView, mNoticeListView, mMemberListView;
     private MemberListAdapter mMemberListAdapter;
     private TodayListAdapter mTodayListAdapter;
     private NoticeListAdapter mNoticeListAdapter;
     private CardView mAddNoticeButton, mCloseAddNoticeButton, mCloseMemberButon, mCloseInformaitonButton,
-            mCloseOptionButton, mCloseLeaderButton, mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton,
+    /*mCloseOptionButton,*/ mCloseLeaderButton, mInviteButton, mChangeButton, mAuthorizeButton, mDeleteButton,
             mCloseAuthorizeButton;
 
     @Override
@@ -67,9 +68,12 @@ public class CrewDetailActivity extends ActionBarActivity {
         mAddNoticeLayout = (RelativeLayout) findViewById(R.id.addNoticeLayout);
         mMemberLayout = (RelativeLayout) findViewById(R.id.memberLayout);
         mInformationLayout = (RelativeLayout) findViewById(R.id.informationLayout);
-        mOptionLayout = (RelativeLayout) findViewById(R.id.optionLayout);
+//        mOptionLayout = (RelativeLayout) findViewById(R.id.optionLayout);
         mLeadersLayout = (RelativeLayout) findViewById(R.id.leadersLayout);
         mAuthorLayout = (RelativeLayout) findViewById(R.id.authorLayout);
+
+        TextView mCrewDetailLayoutTitle = (TextView) findViewById(R.id.crewNameTextView);
+        mCrewDetailLayoutTitle.setText(name);
 
         mTodayListAdapter = new TodayListAdapter(this);
         mTodayListView = (ListView) findViewById(R.id.crewTodayListView);
@@ -152,14 +156,14 @@ public class CrewDetailActivity extends ActionBarActivity {
 
         // Option
 
-        mCloseOptionButton = (CardView) findViewById(R.id.closeOptionButton);
-        mCloseOptionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mOptionLayout.setVisibility(View.GONE);
-                mCrewDetailLayout.setVisibility(View.VISIBLE);
-            }
-        });
+//        mCloseOptionButton = (CardView) findViewById(R.id.closeOptionButton);
+//        mCloseOptionButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mOptionLayout.setVisibility(View.GONE);
+//                mCrewDetailLayout.setVisibility(View.VISIBLE);
+//            }
+//        });
 
         // Leaders
 
@@ -252,8 +256,8 @@ public class CrewDetailActivity extends ActionBarActivity {
                     mCrewDetailLayout.setVisibility(View.GONE);
                     mInformationLayout.setVisibility(View.VISIBLE);
                 } else if (mainMenu[item] == mainMenu[2]) {
-                    mCrewDetailLayout.setVisibility(View.GONE);
-                    mOptionLayout.setVisibility(View.VISIBLE);
+//                    mCrewDetailLayout.setVisibility(View.GONE);
+//                    mOptionLayout.setVisibility(View.VISIBLE);
                 } else if (mainMenu[item] == mainMenu[3]) {
                     mCrewDetailLayout.setVisibility(View.GONE);
                     mLeadersLayout.setVisibility(View.VISIBLE);
