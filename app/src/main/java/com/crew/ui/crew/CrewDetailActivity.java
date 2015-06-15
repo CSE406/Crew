@@ -2,9 +2,11 @@ package com.crew.ui.crew;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,7 +17,23 @@ import android.widget.RelativeLayout;
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import static util.Server.CREW_API;
+import static util.Server.CREW_DETAIL;
+import static util.Server.C_DOING;
+import static util.Server.C_NOTICE;
+import static util.Server.MEMBER;
+import static util.Server.M_SHOW;
+import static util.Server.SERVER_ADDRESS;
+import static util.Server.getStringFromUrl;
+
 public class CrewDetailActivity extends ActionBarActivity {
+
+    private int GROUP_ID;
 
     private RelativeLayout mCrewDetailLayout, mAddNoticeLayout, mMemberLayout, mInformationLayout,
             mOptionLayout, mLeadersLayout, mAuthorLayout;
@@ -32,6 +50,7 @@ public class CrewDetailActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crew_detail);
 
+        GROUP_ID = (int) getIntent().getExtras().get("group_id");
         String name = (String) getIntent().getExtras().get("crewName");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.crewDetailMenuButton);
@@ -56,9 +75,11 @@ public class CrewDetailActivity extends ActionBarActivity {
         mTodayListView = (ListView) findViewById(R.id.crewTodayListView);
         mTodayListView.setAdapter(mTodayListAdapter);
 
-        mTodayListAdapter.addItem("10:30", "Y05-301", "Our Regular Meeting..");
-        mTodayListAdapter.addItem("12:00", "Y05-301", "Next Meeting is on..");
-        mTodayListAdapter.addItem("3:00", "Andante", "Special Party");
+        new getTodayList().execute(SERVER_ADDRESS + CREW_API + CREW_DETAIL + C_DOING + GROUP_ID);
+
+//        mTodayListAdapter.addItem("10:30", "Y05-301", "Our Regular Meeting..");
+//        mTodayListAdapter.addItem("12:00", "Y05-301", "Next Meeting is on..");
+//        mTodayListAdapter.addItem("3:00", "Andante", "Special Party");
 
         mAddNoticeButton = (CardView) findViewById(R.id.addNoticeButton);
         mAddNoticeButton.setOnClickListener(new View.OnClickListener() {
@@ -82,12 +103,14 @@ public class CrewDetailActivity extends ActionBarActivity {
         mNoticeListView = (ListView) findViewById(R.id.crewNoticeListView);
         mNoticeListView.setAdapter(mNoticeListAdapter);
 
-        mNoticeListAdapter.addItem("1st", "Plz..make some Problem");
-        mNoticeListAdapter.addItem("2nd", "I Hate This Project!");
-        mNoticeListAdapter.addItem("3rd", "What the Fuck!");
-        mNoticeListAdapter.addItem("1st", "Plz..make some Problem");
-        mNoticeListAdapter.addItem("2nd", "I Hate This Project!");
-        mNoticeListAdapter.addItem("3rd", "What the Fuck!");
+        new getNoticeList().execute(SERVER_ADDRESS + CREW_API + CREW_DETAIL + C_NOTICE + GROUP_ID);
+
+//        mNoticeListAdapter.addItem("1st", "Plz..make some Problem");
+//        mNoticeListAdapter.addItem("2nd", "I Hate This Project!");
+//        mNoticeListAdapter.addItem("3rd", "What the Fuck!");
+//        mNoticeListAdapter.addItem("1st", "Plz..make some Problem");
+//        mNoticeListAdapter.addItem("2nd", "I Hate This Project!");
+//        mNoticeListAdapter.addItem("3rd", "What the Fuck!");
 
         // Members
 
@@ -95,15 +118,17 @@ public class CrewDetailActivity extends ActionBarActivity {
         mMemberListView = (ListView) findViewById(R.id.memberListView);
         mMemberListView.setAdapter(mMemberListAdapter);
 
-        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
-        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
-        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
-        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
-        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
-        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
-        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
-        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
-        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
+        new getMemberList().execute(SERVER_ADDRESS + CREW_API + MEMBER + M_SHOW + GROUP_ID);
+
+//        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
+//        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
+//        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
+//        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
+//        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
+//        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
+//        mMemberListAdapter.addItem("Dongjun", "Staff", "ehdwns2045@gmail.com");
+//        mMemberListAdapter.addItem("HaHa", "Leader", "crew@crew.com");
+//        mMemberListAdapter.addItem("Google", "Member", "hoho@naver.com");
 
         mCloseMemberButon = (CardView) findViewById(R.id.closeMemberButton);
         mCloseMemberButon.setOnClickListener(new View.OnClickListener() {
@@ -314,5 +339,118 @@ public class CrewDetailActivity extends ActionBarActivity {
         // Icon for AlertDialog
         alert.setIcon(R.drawable.icon_logo2_small);
         alert.show();
+    }
+
+    class getTodayList extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... url) {
+            String urlJSON = getStringFromUrl(url[0]);
+            return urlJSON;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            Log.e("result", result);
+            JSONParser jsonParser = new JSONParser();
+            JSONArray jsons = null;
+
+            try {
+                jsons = (JSONArray) jsonParser.parse(result);
+                if(jsons != null) {
+                    for(int i = 0; i < jsons.size(); i++) {
+                        JSONObject timetable = (JSONObject) jsons.get(i);
+
+                        String title = (String) timetable.get("title");
+                        String start_time = (String) timetable.get("start_time");
+                        String memo = (String) timetable.get("memo");
+
+                        mTodayListAdapter.addItem(title, start_time, memo);
+                    }
+                    mTodayListAdapter.notifyDataSetChanged();
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    class getNoticeList extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... url) {
+            String urlJSON = getStringFromUrl(url[0]);
+            return urlJSON;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            Log.e("result", result);
+            JSONParser jsonParser = new JSONParser();
+            JSONArray jsons = null;
+
+            try {
+                jsons = (JSONArray) jsonParser.parse(result);
+                if(jsons != null) {
+                    for(int i = 0; i < jsons.size(); i++) {
+                        JSONObject timetable = (JSONObject) jsons.get(i);
+
+//                        String id = (String) timetable.get("id");
+                        String title = (String) timetable.get("title");
+                        String importance = (String) timetable.get("importance");
+
+
+                        mNoticeListAdapter.addItem(importance, title);
+                    }
+                    mNoticeListAdapter.notifyDataSetChanged();
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    class getMemberList extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... url) {
+            String urlJSON = getStringFromUrl(url[0]);
+            return urlJSON;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            Log.e("result", result);
+            JSONParser jsonParser = new JSONParser();
+            JSONArray jsons = null;
+
+            try {
+                jsons = (JSONArray) jsonParser.parse(result);
+                if(jsons != null) {
+                    for(int i = 0; i < jsons.size(); i++) {
+                        JSONObject timetable = (JSONObject) jsons.get(i);
+
+                        String name = (String) timetable.get("name");
+                        String power = (String) timetable.get("power");
+                        String email = (String) timetable.get("email");
+
+
+                        mMemberListAdapter.addItem(name, power, email);
+                    }
+                    mMemberListAdapter.notifyDataSetChanged();
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 }

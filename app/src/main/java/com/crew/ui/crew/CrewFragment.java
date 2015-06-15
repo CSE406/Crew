@@ -1,6 +1,7 @@
 package com.crew.ui.crew;
 
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -15,10 +16,21 @@ import android.widget.TextView;
 import com.crew.R;
 import com.crew.ui.material.FloatingActionButton;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import static util.Server.CREW_API;
+import static util.Server.CREW_MAIN;
+import static util.Server.SERVER_ADDRESS;
+import static util.Server.getStringFromUrl;
+
 public class CrewFragment extends Fragment {
 
     private static final String ARG_POSITION = "position";
     private int position;
+    private UserDTO userDTO;
 
     private RelativeLayout mCrewLayout, mAddCrewLayout;
     private ListView mCrewListView;
@@ -38,6 +50,8 @@ public class CrewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         position = getArguments().getInt(ARG_POSITION);
         View rootView = inflater.inflate(R.layout.fragment_crew, container, false);
+
+        userDTO = new UserDTO();
 
         mCrewLayout = (RelativeLayout) rootView.findViewById(R.id.crewLayout);
         mAddCrewLayout = (RelativeLayout) rootView.findViewById(R.id.addCrewLayout);
@@ -78,11 +92,50 @@ public class CrewFragment extends Fragment {
         mCrewListView = (ListView) rootView.findViewById(R.id.crewListView);
         mCrewListView.setAdapter(mCrewListAdapter);
 
-        mCrewListAdapter.addItem("Club", "CCC");
-        mCrewListAdapter.addItem("Team", "Hon-Cheon-Ui");
-        mCrewListAdapter.addItem("Class", "Software Engineering Class");
-        mCrewListAdapter.addItem("Team", "Meeting Group");
+        new getCrewList().execute(SERVER_ADDRESS + CREW_API + CREW_MAIN + userDTO.getId());
+
+//        mCrewListAdapter.addItem("Club", "CCC");
+//        mCrewListAdapter.addItem("Team", "Hon-Cheon-Ui");
+//        mCrewListAdapter.addItem("Class", "Software Engineering Class");
+//        mCrewListAdapter.addItem("Team", "Meeting Group");
 
         return rootView;
+    }
+
+    class getCrewList extends AsyncTask<String, String, String> {
+
+        @Override
+        protected String doInBackground(String... url) {
+            String urlJSON = getStringFromUrl(url[0]);
+            return urlJSON;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            Log.e("result", result);
+            JSONParser jsonParser = new JSONParser();
+            JSONArray jsons = null;
+
+            try {
+                jsons = (JSONArray) jsonParser.parse(result);
+                if(jsons != null) {
+                    for(int i = 0; i < jsons.size(); i++) {
+                        JSONObject timetable = (JSONObject) jsons.get(i);
+
+                        int id = Integer.parseInt((String) timetable.get("id"));
+                        String name = (String) timetable.get("name");
+                        String label = (String) timetable.get("label");
+
+                        mCrewListAdapter.addItem(id, label, name);
+                    }
+                    mCrewListAdapter.notifyDataSetChanged();
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 }
