@@ -15,7 +15,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Crew Name"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-thin"
             android:layout_gravity="center"
