@@ -2,6 +2,7 @@ package com.crew.ui.crew;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
@@ -264,30 +265,8 @@ public class CrewDetailActivity extends ActionBarActivity {
     }
 
     private void DialogInvite(){
-        AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
-
-        final EditText input = new EditText(this);
-        alt_bld.setView(input);
-
-        alt_bld.setMessage("Invite Your Friends!").setCancelable(
-                false).setPositiveButton("Send",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Action for 'Yes' Button
-                    }
-                }).setNegativeButton("Cancel",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // Action for 'NO' Button
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = alt_bld.create();
-        // Title for AlertDialog
-        alert.setTitle("INVITE");
-        // Icon for AlertDialog
-        alert.setIcon(R.drawable.icon_logo2_small);
-        alert.show();
+        Intent intent = new Intent(CrewDetailActivity.this, CrewInviteActivity.class);
+        startActivity(intent);
     }
 
     private void DialogChange(){
