@@ -37,6 +37,7 @@ public class CrewDetailActivity extends ActionBarActivity {
 
         String name = (String) getIntent().getExtras().get("crewName");
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.crewDetailMenuButton);
         fab.setDrawableIcon(getResources().getDrawable(R.drawable.button_icon));
         fab.setBackgroundColor(getResources().getColor(R.color.purple_500));
