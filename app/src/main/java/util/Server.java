@@ -29,6 +29,10 @@ public class Server {
     static public String M_DOING = "/CallTodayDoing.php?user_id=";
     static public String M_NOTICE = "/CallCrewNotice.php?user_id=";
 
+    static public String TIME_TABLE_API = "/Timetable";
+    static public String CALL_TIME = "/CallTimetable.php?query=";
+    static public String T_SHOW = "showTimetables";
+
     static public String CREW_API = "/Crew";
     static public String CREW_MAIN = "/Crew_main.php?user_id=";
 
@@ -42,6 +46,8 @@ public class Server {
     static public String MEMBER = "/show_member.php?query=";
     static public String M_SHOW = "showM&groups_id=";
 
+    static public String SCHEDULE = "/Schedule.php?query=";
+    static public String CALL_ALL = "callAllSchedule&groups_id=";
 
     static public String getStringFromUrl(String url) {
         DefaultHttpClient httpclient = new DefaultHttpClient();

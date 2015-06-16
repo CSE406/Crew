@@ -1,6 +1,7 @@
 package com.crew.ui.timetable;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,25 +11,36 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.crew.R;
+import com.crew.ui.crew.UserDTO;
 import com.crew.ui.material.FloatingActionButton;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.util.Random;
 
+import static util.Server.CALL_TIME;
+import static util.Server.SERVER_ADDRESS;
+import static util.Server.TIME_TABLE_API;
+import static util.Server.T_SHOW;
+import static util.Server.WITH_USER;
+import static util.Server.getStringFromUrl;
 
 
 public class TimeTableFragment extends Fragment {
 
     private static final String ARG_POSITION = "position";
-
     private int position;
 
+    private UserDTO userDTO;
+
+    private Button[][] d;
     private int col[] = {0xfffff61a, 0xff6cff13, 0xffffc810, 0xff77f5ff, 0xffceff23, 0xffffa184, 0xffff2fa5, 0xff60a0ff, 0xfffff7e5, 0xffffbcda, 0xffc4afff, 0xff58ffc6, 0xffe0ffb1, 0xffffcae5};
 
     //private int col[] = {0x304f9f, 0x9c27b0, 0xfffff61a, 0xff6cff13, 0xffffc810, 0xbf360c, 0xff55ff, 0xadff2f, 0xe6e6fa, 0xde6912, 0xff69b4, 0x008080, 0x98fb98, 0xcd853f, 0xfffacd, 0x00ff7f};
-
-
-    private int colorIndex = 6;
-
+    private int colorIndex;
 
     public static TimeTableFragment newInstance(int position) {
         TimeTableFragment f = new TimeTableFragment();
@@ -43,40 +55,39 @@ public class TimeTableFragment extends Fragment {
             position = getArguments().getInt(ARG_POSITION);
             final View rootView = inflater.inflate(R.layout.fragment_time_table, container, false);
 
+            userDTO = new UserDTO();
+
             FloatingActionButton addition = (FloatingActionButton) rootView.findViewById(R.id.AdditionButton);
             addition.setBackgroundColor(getResources().getColor(R.color.purple_500));
             addition.setDrawableIcon(getResources().getDrawable(R.drawable.plus));
 
+            init(rootView);
+
             addition.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    switch(v.getId())
-                    {
-                        case R.id.AdditionButton :
-                            setButtonColor("SE", "1000", "1130", "Mon" ,rootView);
-                            setButtonColor("PL", "1300", "1430", "Thu" ,rootView);
-                            setButtonColor("BO", "1300", "1430", "Fri" ,rootView);
-                            setButtonColor("DD", "1300", "1430", "Wed" ,rootView);
+                    switch (v.getId()) {
+                        case R.id.AdditionButton:
+//                            setButtonColor("SE", "1000", "1130", "Mon" ,rootView);
+//                            setButtonColor("PL", "1300", "1430", "Thu" ,rootView);
+//                            setButtonColor("BO", "1300", "1430", "Fri" ,rootView);
+//                            setButtonColor("DD", "1300", "1430", "Wed" ,rootView);
                             Intent intent = new Intent(getActivity(), MidOptionActivity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
-
-
                             break;
                     }
                 }
             });
 
+            new getTimeTable().execute(SERVER_ADDRESS + TIME_TABLE_API + CALL_TIME + T_SHOW + WITH_USER + userDTO.getId());
+
             return rootView;
         }
 
+    public void init(View rootView) {
 
-    //If title = "software", start_time = 1000, end_time = 1130, day_of_week = "Mon"
-    public void setButtonColor(String title, String start_time, String end_time, String day_of_week, View rootView)
-    {
-        Button d[][] = new Button [5][27];
-
-        Random random = new Random();
+        d = new Button [5][27];
 
         d[0][1] = (Button)rootView.findViewById(R.id.mondayButton1);
         d[0][2] = (Button)rootView.findViewById(R.id.mondayButton2);
@@ -212,9 +223,13 @@ public class TimeTableFragment extends Fragment {
         d[4][24] = (Button)rootView.findViewById(R.id.fridayButton24);
         d[4][25] = (Button)rootView.findViewById(R.id.fridayButton25);
         d[4][26] = (Button)rootView.findViewById(R.id.fridayButton26);
+    }
 
 
-
+    //If title = "software", start_time = 1000, end_time = 1130, day_of_week = "Mon"
+    public void setButtonColor(String title, String start_time, String end_time, String day_of_week)
+    {
+        Random random = new Random();
 
         int dayFlag = -1;
 
@@ -263,7 +278,6 @@ public class TimeTableFragment extends Fragment {
             re_time += 1;
         }
 
-
         //random color
         colorIndex = random.nextInt(13);
 
@@ -281,7 +295,41 @@ public class TimeTableFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    class getTimeTable extends AsyncTask<String, String, String> {
 
+        @Override
+        protected String doInBackground(String... url) {
+            String urlJSON = getStringFromUrl(url[0]);
+            return urlJSON;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            JSONParser jsonParser = new JSONParser();
+            JSONArray jsons = null;
+
+            try {
+                jsons = (JSONArray) jsonParser.parse(result);
+                if(jsons != null) {
+                    for(int i = 0; i < jsons.size(); i++) {
+                        JSONObject timetable = (JSONObject) jsons.get(i);
+
+                        String title = (String) timetable.get("title");
+                        String start_time = (String) timetable.get("start_time");
+                        String end_time = (String) timetable.get("end_time");
+                        String day_of_week = (String) timetable.get("day_of_week");
+                        int color = Integer.parseInt((String) timetable.get("color"));
+                        setButtonColor(title, start_time, end_time, day_of_week);
+                    }
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 }

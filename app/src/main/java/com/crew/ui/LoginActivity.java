@@ -161,7 +161,7 @@ public class LoginActivity extends FragmentActivity {
             boolean result = false;
             try {
                 users = (JSONArray) jsonParser.parse(userIdJSON.toString());
-                if(users != null) {
+                if(users != null && users.size() != 0) {
                     JSONObject user = (JSONObject) users.get(0);
                     userDTO.setId(Integer.parseInt((String) user.get("user_id")));
                     Log.e("user_id", userDTO.getId() + " is login.");

@@ -1,0 +1,2698 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/content_frame"
+    android:layout_height="match_parent">
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.crew.ui.TimeTableActivity">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_height="fill_parent"
+            android:layout_width="fill_parent" >
+
+            <GridLayout
+                android:layout_width="fill_parent"
+                android:shrinkColumns="*"
+                android:orientation="vertical"
+
+                android:scrollbarStyle="outsideOverlay"
+                android:layout_height="fill_parent" >
+
+                <!--android:rowCount = -->
+
+                <!-- 요일 -->
+
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle_dayofweek"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"
+                            android:visibility="invisible"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="00:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"
+                            android:visibility="invisible"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:id="@+id/monButton"
+                        android:text="Mon"
+                        android:lines="2"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="2"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/rectangle_dayofweek"
+                        android:gravity="center"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layout_marginLeft="0dp" />
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:id="@+id/tueButton"
+                        android:text="Tue"
+                        android:lines="2"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="2"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/rectangle_dayofweek"
+                        android:gravity="center"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-condensed" />
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:id="@+id/wedButton"
+                        android:text="Wed"
+                        android:lines="2"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="2"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/rectangle_dayofweek"
+                        android:gravity="center"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-condensed" />
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:id="@+id/thuButton"
+                        android:text="Thu"
+                        android:lines="2"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="2"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/rectangle_dayofweek"
+                        android:gravity="center"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-condensed" />
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:id="@+id/friButton"
+                        android:text="Fri"
+                        android:lines="2"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="2"
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/rectangle_dayofweek"
+                        android:gravity="center"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-condensed" />
+                </TableRow>
+
+                <!-- Column 1 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="09:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <!--<Button-->
+                    <!--android:id="@+id/firsttimeButton"-->
+                    <!--android:textSize="12sp"-->
+                    <!--android:text="09:00"-->
+                    <!--android:gravity="center"-->
+                    <!--android:layout_weight="5"-->
+                    <!--android:lines="3"-->
+                    <!--android:ems="3"-->
+                    <!--android:maxEms="3"-->
+                    <!--android:maxLines="3"-->
+                    <!--android:layout_marginLeft="0dp"-->
+                    <!--android:layout_marginBottom="0dp"-->
+                    <!--android:textColor="@color/timetable_text_color"-->
+                    <!--android:background="@drawable/rectangle"/>-->
+
+                    <Button
+                        android:id="@+id/mondayButton1"
+                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/tuesdayButton1"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/wednesdayButton1"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/thursdayButton1"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/fridayButton1"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 2 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="09:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton2"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/tuesdayButton2"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/wednesdayButton2"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton2"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton2"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 3 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton3"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/tuesdayButton3"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/wednesdayButton3"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/thursdayButton3"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/fridayButton3"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 4 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton4"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/tuesdayButton4"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/wednesdayButton4"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/thursdayButton4"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/fridayButton4"
+                        android:text=""
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 5 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton5"
+                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton5"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton5"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton5"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton5"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 6 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="6"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton6"
+                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/tuesdayButton6"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/wednesdayButton6"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/thursdayButton6"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/fridayButton6"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 7 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="7"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton7"
+                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton7"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton7"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton7"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton7"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 8 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="8"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton8"
+                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/tuesdayButton8"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:id="@+id/wednesdayButton8"
+                        android:textSize="12sp"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton8"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton8"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 9 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton9"
+                        android:textSize="12sp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton9"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton9"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton9"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton9"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 10 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton10"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton10"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton10"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton10"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton10"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 11 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton11"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton11"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton11"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton11"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton11"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 12 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton12"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton12"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton12"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton12"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton12"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 13 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton13"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton13"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton13"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton13"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton13"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 14 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton14"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton14"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton14"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton14"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton14"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 15 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="15"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton15"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton15"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton15"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton15"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton15"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 16 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="16:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton16"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton16"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton16"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton16"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton16"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 17 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton17"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton17"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton17"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton17"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton17"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 18 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="17:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton18"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton18"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton18"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton18"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton18"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 19 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="19"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton19"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton19"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton19"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton19"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton19"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 20 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton20"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton20"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton20"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton20"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton20"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 21 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="21"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="19:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton21"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton21"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton21"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton21"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton21"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 22 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="22"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="19:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton22"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton22"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton22"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton22"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton22"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 23 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="23"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton23"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton23"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton23"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton23"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton23"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 24 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton24"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton24"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton24"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton24"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton24"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 25 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="21:00"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton25"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton25"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton25"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton25"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton25"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+
+                </TableRow>
+
+                <!-- Column 26 -->
+                <TableRow
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_weight="5"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="8dp"
+                        android:background="@drawable/rectangle"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="26"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:textColor="@android:color/black"
+                            android:layout_gravity="center"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="21:30"
+                            android:textSize="10sp"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/mondayButton26"
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle"/>
+
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/tuesdayButton26"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/wednesdayButton26"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/thursdayButton26"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                    <Button
+                        android:layout_weight="1"
+                        android:textSize="12sp"
+                        android:id="@+id/fridayButton26"
+                        android:text=""
+                        android:gravity="center"
+                        android:lines="3"
+                        android:ems="3"
+                        android:maxEms="3"
+                        android:maxLines="3"
+                        android:layout_marginLeft="0dp"
+                        android:textColor="@color/timetable_text_color"
+                        android:background="@drawable/rectangle" />
+                </TableRow>
+
+            </GridLayout>
+
+        </ScrollView>
+    </GridLayout>
+
+</FrameLayout>

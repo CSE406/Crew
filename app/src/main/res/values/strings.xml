@@ -26,4 +26,6 @@
     <string name="spinnerPrompt4">Choose StartTime!</string>
     <string name="spinnerPrompt5">Choose EndTime!</string>
 
+    <string name="hello_world">Hello world!</string>
+
 </resources>

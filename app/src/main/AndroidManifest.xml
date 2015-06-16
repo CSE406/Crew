@@ -64,6 +64,10 @@
             android:name=".ui.timetable.MidOptionActivity"
             android:label="@string/title_activity_mid_option" >
         </activity>
+        <activity
+            android:name=".ui.crew.TimeTableActivity"
+            android:label="@string/title_activity_time_table" >
+        </activity>
     </application>
 
 </manifest>
