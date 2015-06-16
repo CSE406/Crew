@@ -243,6 +243,8 @@ public class TimeTableActivity extends ActionBarActivity {
     //If title = "software", start_time = 1000, end_time = 1130, day_of_week = "Mon"
     public void setButtonColor(String title, String start_time, String end_time, String day_of_week)
     {
+        Log.e("input1", start_time + " " + end_time + " " + day_of_week);
+
         Random random = new Random();
 
         int dayFlag = -1;
@@ -271,6 +273,8 @@ public class TimeTableActivity extends ActionBarActivity {
                 e.printStackTrace();
             }
         }
+
+        Log.e("input2", start_time + " " + end_time + " " + day_of_week);
 
         // If start_time = "0900"
         int s_time = Integer.parseInt(start_time);
@@ -301,35 +305,47 @@ public class TimeTableActivity extends ActionBarActivity {
 
         int j = rs_time;
 
+        Log.e("input3", start_time + " " + end_time + " " + day_of_week);
+        Log.e("input3", rs_time + " " + interval_time);
 
 //        //print color View
-//        if(e_time > s_time) {
-//            for (int i = 0; i < interval_time; i++) {
+        if(e_time > s_time) {
+            for (int i = 0; i < interval_time; i++) {
 //                Log.i("color", col[colorIndex]+"");
-//
+
+                if(d[dayFlag][j].getTag() == null)
+                    d[dayFlag][j].setTag(0);
+                int count = (int) d[dayFlag][j].getTag();
+                d[dayFlag][j].setTag( count + 1);
+                d[dayFlag][j].setText(d[dayFlag][j].getTag()+"");
+                d[dayFlag][j].setBackgroundResource(col[(count+1)/2]);
+                j++;
+
 //                d[dayFlag][j].setBackgroundColor(col[colorIndex]);
 //                d[dayFlag][j].setText(title);
 //                j++;
-//            }
-//        }
-
-        //print color View
-        if(e_time >= s_time) {
-            for (int i = rs_time; i < interval_time; i++) {
-                if(d[dayFlag][i].getTag() == null)
-                    d[dayFlag][i].setTag(0);
-                int count = (int) d[dayFlag][i].getTag();
-                d[dayFlag][i].setTag( count + 1);
-                d[dayFlag][i].setText(d[dayFlag][i].getTag()+"");
-                d[dayFlag][i].setBackgroundResource(col[(count+1)/2]);
             }
         }
+
+        //print color View
+//        if(e_time >= s_time) {
+//            for (int i = rs_time; i <= rs_time + interval_time; i++) {
+//
+//                Log.e("Grounp", e_time + " " + s_time + " " + i);
+//
+//                if(d[dayFlag][i].getTag() == null)
+//                    d[dayFlag][i].setTag(0);
+//                int count = (int) d[dayFlag][i].getTag();
+//                d[dayFlag][i].setTag( count + 1);
+//                d[dayFlag][i].setText(d[dayFlag][i].getTag()+"");
+//                d[dayFlag][i].setBackgroundResource(col[(count+1)/2]);
+//            }
+//        }
         //Exception : time is not correct!
-        else try {
-            throw new Exception();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        else {
+//            Log.e("Grounp", e_time + " " + s_time);
+//        }
+
     }
 
     class getTimeTable extends AsyncTask<String, String, String> {
@@ -358,7 +374,7 @@ public class TimeTableActivity extends ActionBarActivity {
                         String end_time = (String) timetable.get("end_time");
                         String day_of_week = (String) timetable.get("day_of_week");
 //                        int color = Integer.parseInt((String) timetable.get("color"));
-                        Log.e("time" , title + start_time +end_time +day_of_week);
+                        Log.e("time" , title + " " + start_time + " " +end_time + " " + day_of_week);
                         setButtonColor(title, start_time, end_time, day_of_week);
                     }
                 }
