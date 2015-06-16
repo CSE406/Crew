@@ -1,5 +1,7 @@
 package util;
 
+import android.os.AsyncTask;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -30,6 +32,9 @@ public class Server {
     static public String CREW_API = "/Crew";
     static public String CREW_MAIN = "/Crew_main.php?user_id=";
 
+    static public String MAKE = "/Make_Crew.php?query=";
+    static public String C_MAKE = "makeC";
+
     static public String CREW_DETAIL = "/Crew_detail.php?query=";
     static public String C_DOING = "showDoing&groups_id=";
     static public String C_NOTICE = "callNotice&groups_id=";
@@ -59,6 +64,13 @@ public class Server {
             e.printStackTrace();
         }
         return total.toString();
+    }
+
+    static public class insert_update extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... url) {
+            return getStringFromUrl(url[0]);
+        }
     }
 
 }

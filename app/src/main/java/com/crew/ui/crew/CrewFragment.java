@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.internal.widget.TintEditText;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,10 +22,17 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import static util.Server.CREW_API;
 import static util.Server.CREW_MAIN;
+import static util.Server.C_MAKE;
+import static util.Server.MAKE;
 import static util.Server.SERVER_ADDRESS;
+import static util.Server.WITH_USER;
 import static util.Server.getStringFromUrl;
+import static util.Server.insert_update;
 
 public class CrewFragment extends Fragment {
 
@@ -37,6 +45,7 @@ public class CrewFragment extends Fragment {
     private CrewListAdapter mCrewListAdapter;
     private CardView mSaveButton, mCancelButton;
     private TextView mCrewBrandTextView;
+    private TintEditText mNameEditText, mDivisionEditText, mExplainEditText;
 
     public static CrewFragment newInstance(int position) {
         CrewFragment f = new CrewFragment();
@@ -67,11 +76,25 @@ public class CrewFragment extends Fragment {
             }
         });
 
+        mNameEditText = (TintEditText) rootView.findViewById(R.id.inputNameEditText);
+        mDivisionEditText = (TintEditText) rootView.findViewById(R.id.inputDivisionEditText);
+        mExplainEditText = (TintEditText) rootView.findViewById(R.id.inputExplainEditText);
+
         mSaveButton = (CardView) rootView.findViewById(R.id.saveCrewButton);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("Save", "새로운 크루 저장.");
+                try {
+                    new insert_update().execute(SERVER_ADDRESS + CREW_API + MAKE + C_MAKE
+                            + WITH_USER + userDTO.getId()
+                            + "&name=" + URLEncoder.encode(String.valueOf(mNameEditText.getText()), "utf-8")
+                            + "&label=" + URLEncoder.encode(String.valueOf(mDivisionEditText.getText()), "utf-8")
+                            + "&memo=" + URLEncoder.encode(String.valueOf(mExplainEditText.getText()), "utf-8"));
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                mCancelButton.callOnClick();
+                mCrewListAdapter.notifyDataSetChanged();
             }
         });
 
@@ -138,4 +161,5 @@ public class CrewFragment extends Fragment {
 
         }
     }
+
 }

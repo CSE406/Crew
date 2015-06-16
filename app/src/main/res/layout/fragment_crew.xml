@@ -180,6 +180,7 @@
                     card_view:cardCornerRadius="4dp">
 
                     <android.support.v7.internal.widget.TintEditText
+                        android:id="@+id/inputNameEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/purple_300"
@@ -215,6 +216,7 @@
                     card_view:cardCornerRadius="4dp">
 
                     <android.support.v7.internal.widget.TintEditText
+                        android:id="@+id/inputDivisionEditText"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/purple_300"
@@ -247,6 +249,7 @@
                 card_view:cardCornerRadius="4dp">
 
                 <android.support.v7.internal.widget.TintEditText
+                    android:id="@+id/inputExplainEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Introduce Your Crew!" />
