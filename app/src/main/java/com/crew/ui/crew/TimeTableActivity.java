@@ -19,23 +19,37 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Random;
+
+import util.Server;
 
 import static util.Server.CALL_ALL;
 import static util.Server.CREW_API;
+import static util.Server.C_TIMETABLE;
+import static util.Server.INSERT_CT;
 import static util.Server.SCHEDULE;
 import static util.Server.SERVER_ADDRESS;
+import static util.Server.TIME_TABLE_API;
 import static util.Server.getStringFromUrl;
 
 public class TimeTableActivity extends ActionBarActivity {
 
     private Button[][] d;
-    private int col[] = {0xfffff61a, 0xff6cff13, 0xffffc810, 0xff77f5ff, 0xffceff23, 0xffffa184, 0xffff2fa5, 0xff60a0ff, 0xfffff7e5, 0xffffbcda, 0xffc4afff, 0xff58ffc6, 0xffe0ffb1, 0xffffcae5};
+    private int col[] = {R.color.purple_300, R.color.purple_400, R.color.purple_500, R.color.purple_600, R.color.purple_700, R.color.purple_800, R.color.purple_900};
     private int colorIndex;
 
     private int GROUP_ID;
     private boolean start = false;
 
+    private String year = "2015-06-";
+    private String[] week = {"15", "16", "17", "18", "19"};
+    private String[] week_str = {"Mon", "Tue", "Wed", "Thu", "Fri"};
+    private String[] time = {"09:00:00", "09:30:00","10:00:00", "10:30:00","11:00:00", "11:30:00","12:00:00", "12:30:00",
+                            "13:00:00", "13:30:00","14:00:00", "14:30:00","15:00:00", "15:30:00","16:00:00", "16:30:00",
+                            "17:00:00", "17:30:00","18:00:00", "18:30:00","19:00:00", "19:30:00","20:00:00", "20:30:00",
+                            "21:00:00", "21:30:00"};
     private String start_time = "", end_time = "", day_of_week = "", title = "", memo = "";
 
     @Override
@@ -216,7 +230,11 @@ public class TimeTableActivity extends ActionBarActivity {
                 d[i][j].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        DialogSettingTime(start, v);
+                        if(v.getTag() == null)
+                            DialogSettingTime(v);
+                        else
+                            showAlert();
+
                     }
                 });
     }
@@ -254,35 +272,56 @@ public class TimeTableActivity extends ActionBarActivity {
             }
         }
 
-        // If start_time = "1000"
+        // If start_time = "0900"
         int s_time = Integer.parseInt(start_time);
-
-        int rs_time = (((s_time / 100) - 8) + 1);
-
-        if(s_time % 100 >= 30)
-        {
-            rs_time += 1;
-        }
-
-        // If end_time = "1130"
         int e_time = Integer.parseInt(end_time);
 
-        int re_time = (((e_time / 100) - 8) + 1);
+        // calculate interval_times...
+        int interval_time = (2 * ((e_time - s_time)/100));
 
-        if(e_time % 100 >= 30)
+        if((e_time - s_time) % 100 == 70 || (e_time - s_time) % 100 == 30)
         {
-            re_time += 1;
+            interval_time += 1;
+        }
+
+        System.out.println("s_time is " + s_time);
+
+
+        // caculate start point
+        int rs_time = (2 * ((s_time / 100) - 9) + 1) ;
+        System.out.println("rs_time(1) is " + rs_time);
+
+        if(s_time % 100 == 30)
+        {
+            rs_time += 1;
         }
 
         //random color
         colorIndex = random.nextInt(13);
 
+        int j = rs_time;
+
+
+//        //print color View
+//        if(e_time > s_time) {
+//            for (int i = 0; i < interval_time; i++) {
+//                Log.i("color", col[colorIndex]+"");
+//
+//                d[dayFlag][j].setBackgroundColor(col[colorIndex]);
+//                d[dayFlag][j].setText(title);
+//                j++;
+//            }
+//        }
+
         //print color View
-        if(re_time > rs_time) {
-            for (int i = rs_time; i < (re_time + 1); i++) {
-                Log.i("color", col[colorIndex] + "");
-                d[dayFlag][i].setBackgroundColor(col[colorIndex]);
-                d[dayFlag][i].setText(title);
+        if(e_time >= s_time) {
+            for (int i = rs_time; i < interval_time; i++) {
+                if(d[dayFlag][i].getTag() == null)
+                    d[dayFlag][i].setTag(0);
+                int count = (int) d[dayFlag][i].getTag();
+                d[dayFlag][i].setTag( count + 1);
+                d[dayFlag][i].setText(d[dayFlag][i].getTag()+"");
+                d[dayFlag][i].setBackgroundResource(col[(count+1)/2]);
             }
         }
         //Exception : time is not correct!
@@ -318,7 +357,8 @@ public class TimeTableActivity extends ActionBarActivity {
                         String start_time = (String) timetable.get("start_time");
                         String end_time = (String) timetable.get("end_time");
                         String day_of_week = (String) timetable.get("day_of_week");
-                        int color = Integer.parseInt((String) timetable.get("color"));
+//                        int color = Integer.parseInt((String) timetable.get("color"));
+                        Log.e("time" , title + start_time +end_time +day_of_week);
                         setButtonColor(title, start_time, end_time, day_of_week);
                     }
                 }
@@ -329,37 +369,70 @@ public class TimeTableActivity extends ActionBarActivity {
         }
     }
 
-    private void DialogSettingTime(boolean start, final View v){
+    private void DialogSettingTime(final View v){
         AlertDialog.Builder alt_bld = new AlertDialog.Builder(this);
 
         final EditText input = new EditText(this);
-        input.setHint("스케쥴을 입력해주세요.");
-        alt_bld.setView(input);
 
         String message = "시작시간";
-        if(start)
+        if(start) {
             message = "끝시간";
+            input.setHint("스케쥴을 입력해주세요.");
+            alt_bld.setView(input);
+        }
 
         alt_bld.setMessage(message + "으로 설정하시겠습니까?").setCancelable(
                 false).setPositiveButton("Save",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // Action for 'Yes' Button
+                        if (!start) {
+                            int hour = 0, day = 0;
+                            for (int i = 0; i < 5; i++)
+                                for (int j = 1; j < 27; j++)
+                                    if (d[i][j] == (Button) v) {
+                                        day = i;
+                                        hour = j;
+                                        break;
+                                    }
+                            v.setBackgroundResource(R.color.purple_A200);
+                            start_time = hour + "";
+                            day_of_week = day + "";
+                            start = true;
+                        } else {
 
-                        int hour = 0, day = 0;
+                            int hour = 0, day = 0;
+                            for (int i = 0; i < 5; i++)
+                                for (int j = 1; j < 27; j++)
+                                    if (d[i][j] == (Button) v) {
+                                        day = i;
+                                        hour = j;
+                                        break;
+                                    }
 
-                        for(int i = 0; i < 5; i ++)
-                            for(int j = 1; j < 27; j++)
-                                if(d[i][j] == (Button) v ) {
-                                    day = i;
-                                    hour = j;
-                                    break;
-                                }
+                            title = input.getText().toString();
+                            end_time = hour + "";
+                            day_of_week = day + "";
 
-                        start_time = hour + "";
-                        day_of_week = day + "";
+                            int s_t = Integer.parseInt(start_time)-1;
+                            int e_t = Integer.parseInt(end_time)-1;
+                            int d_w = Integer.parseInt(day_of_week);
+                            for(int i = s_t; i < e_t; i++)
+                                d[d_w][i].setBackgroundResource(R.color.purple_A200);
 
-                        Log.e("TIMETABLE", start_time + " " + day_of_week);
+                            Log.e("TIMETABLE", title + " " + start_time + " " + end_time + " " + day_of_week);
+                            try {
+                                new Server.insert_update().execute(SERVER_ADDRESS + TIME_TABLE_API + C_TIMETABLE + INSERT_CT + "&groups_id=" + GROUP_ID +
+                                "&title=" + URLEncoder.encode(title, "utf-8") +
+                                "&start_time=" + URLEncoder.encode(year + week[d_w] + " " + time[s_t], "utf-8") +
+                                "&end_time=" + URLEncoder.encode(year + week[d_w] + " " + time[e_t], "utf-8") +
+                                "&day_of_week=" + URLEncoder.encode(week_str[d_w], "utf-8"));
+                            } catch (UnsupportedEncodingException e) {
+                                e.printStackTrace();
+                            }
+//166.104.245.89/Crew/DB/Timetable/InsertCrew_Timetable.php?query=insertCT&groups_id=120&title=test&memo=memo&start_time=0000-00-00%2010:00:00&end_time=0000-00-0012:00:00
+                            finish();
+                        }
                     }
                 }).setNegativeButton("Cancel",
                 new DialogInterface.OnClickListener() {
@@ -373,6 +446,18 @@ public class TimeTableActivity extends ActionBarActivity {
         alert.setTitle("Add Schedule!");
         // Icon for AlertDialog
         alert.setIcon(R.drawable.icon_logo2_small);
+        alert.show();
+    }
+
+    private void showAlert() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(TimeTableActivity.this);
+        alert.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();     //닫기
+            }
+        });
+        alert.setMessage("해당 시간에 일정이 있는 맴버가 있습니다.");
         alert.show();
     }
 }

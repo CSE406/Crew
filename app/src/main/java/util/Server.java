@@ -49,6 +49,9 @@ public class Server {
     static public String SCHEDULE = "/Schedule.php?query=";
     static public String CALL_ALL = "callAllSchedule&groups_id=";
 
+    static public String C_TIMETABLE = "/InsertCrew_Timetable.php?query=";
+    static public String INSERT_CT = "insertCT";
+
     static public String getStringFromUrl(String url) {
         DefaultHttpClient httpclient = new DefaultHttpClient();
 

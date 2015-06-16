@@ -37,7 +37,7 @@ public class TimeTableFragment extends Fragment {
     private UserDTO userDTO;
 
     private Button[][] d;
-    private int col[] = {0xfffff61a, 0xff6cff13, 0xffffc810, 0xff77f5ff, 0xffceff23, 0xffffa184, 0xffff2fa5, 0xff60a0ff, 0xfffff7e5, 0xffffbcda, 0xffc4afff, 0xff58ffc6, 0xffe0ffb1, 0xffffcae5};
+    private int col[] = {0x4bfff61a, 0x4b6cff13, 0x4bffc810, 0x4b77f5ff, 0x4bceff23, 0x4bffa184, 0x4bff2fa5, 0x4b60a0ff, 0x4bfff7e5, 0x4bffbcda, 0x4bc4afff, 0x4b58ffc6, 0x4be0ffb1, 0x4bffcae5};
 
     //private int col[] = {0x304f9f, 0x9c27b0, 0xfffff61a, 0xff6cff13, 0xffffc810, 0xbf360c, 0xff55ff, 0xadff2f, 0xe6e6fa, 0xde6912, 0xff69b4, 0x008080, 0x98fb98, 0xcd853f, 0xfffacd, 0x00ff7f};
     private int colorIndex;
@@ -258,35 +258,43 @@ public class TimeTableFragment extends Fragment {
             }
         }
 
-        // If start_time = "1000"
+        // If start_time = "0900"
         int s_time = Integer.parseInt(start_time);
-
-        int rs_time = (((s_time / 100) - 8) + 1);
-
-        if(s_time % 100 >= 30)
-        {
-            rs_time += 1;
-        }
-
-        // If end_time = "1130"
         int e_time = Integer.parseInt(end_time);
 
-        int re_time = (((e_time / 100) - 8) + 1);
+        // calculate interval_times...
+        int interval_time = (2 * ((e_time - s_time)/100));
 
-        if(e_time % 100 >= 30)
+        if((e_time - s_time) % 100 == 70 || (e_time - s_time) % 100 == 30)
         {
-            re_time += 1;
+            interval_time += 1;
+        }
+
+        System.out.println("s_time is " + s_time);
+
+
+        // caculate start point
+        int rs_time = (2 * ((s_time / 100) - 9) + 1) ;
+        System.out.println("rs_time(1) is " + rs_time);
+
+        if(s_time % 100 == 30)
+        {
+            rs_time += 1;
         }
 
         //random color
         colorIndex = random.nextInt(13);
 
+        int j = rs_time;
+
         //print color View
-        if(re_time > rs_time) {
-            for (int i = rs_time; i < (re_time + 1); i++) {
+        if(e_time > s_time) {
+            for (int i = 0; i < interval_time; i++) {
                 Log.i("color", col[colorIndex]+"");
-                d[dayFlag][i].setBackgroundColor(col[colorIndex]);
-                d[dayFlag][i].setText(title);
+
+                d[dayFlag][j].setBackgroundColor(col[colorIndex]);
+                d[dayFlag][j].setText(title);
+                j++;
             }
         }
         //Exception : time is not correct!

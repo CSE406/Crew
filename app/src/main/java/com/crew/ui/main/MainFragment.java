@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.crew.LoginActivity;
+import com.crew.ui.LoginActivity;
 import com.crew.R;
 import com.crew.ui.crew.UserDTO;
 import com.crew.ui.material.FloatingActionButton;

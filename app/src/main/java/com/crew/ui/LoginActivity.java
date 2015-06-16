@@ -1,4 +1,4 @@
-package com.crew;
+package com.crew.ui;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.crew.ui.MainActivity;
+import com.crew.R;
 import com.crew.ui.crew.UserDTO;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
