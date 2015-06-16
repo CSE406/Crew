@@ -37,9 +37,8 @@ public class TimeTableFragment extends Fragment {
             View rootView = inflater.inflate(R.layout.fragment_time_table, container, false);
 
             FloatingActionButton addition = (FloatingActionButton) rootView.findViewById(R.id.AdditionButton);
+            addition.setBackgroundColor(getResources().getColor(R.color.purple_500));
             addition.setDrawableIcon(getResources().getDrawable(R.drawable.plus));
-
-
 
             addition.setOnClickListener(new View.OnClickListener() {
                 @Override

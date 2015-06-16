@@ -6,10 +6,7 @@
 
     <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:layout_height="match_parent"
         tools:context="com.crew.ui.TimeTableActivity">
 
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,112 +25,154 @@
 
                     <!-- 요일 -->
 
-                    <TableRow android:weightSum="6">
+                    <TableRow
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle_dayofweek"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"
+                                android:visibility="invisible"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="00:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"
+                                android:visibility="invisible"/>
+
+                        </LinearLayout>
+
                         <Button
-
-                            android:id="@+id/timeButton"
-                            android:text="   "
-                            android:lines="2"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="2"
                             android:layout_weight="1"
-                            android:textSize="18sp"
-                            android:textColor="@color/timetable_text_color"
-                            android:gravity="center"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:background= "@drawable/rectangle"/>
-
-
-                        <Button
-                            android:layout_weight="1"
+                            android:layout_height="30dp"
                             android:id="@+id/monButton"
                             android:text="Mon"
                             android:lines="2"
                             android:ems="3"
                             android:maxEms="3"
                             android:maxLines="2"
-                            android:textColor="@color/timetable_text_color"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/rectangle_dayofweek"
                             android:gravity="center"
-                            android:textSize="18sp"
-                            android:layout_marginLeft="0dp"
-                            android:background="@drawable/rectangle" />
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layout_marginLeft="0dp" />
                         <Button
                             android:layout_weight="1"
+                            android:layout_height="30dp"
                             android:id="@+id/tueButton"
                             android:text="Tue"
                             android:lines="2"
                             android:ems="3"
                             android:maxEms="3"
                             android:maxLines="2"
-                            android:textColor="@color/timetable_text_color"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/rectangle_dayofweek"
                             android:gravity="center"
-                            android:textSize="18sp"
-
-                            android:background="@drawable/rectangle" />
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-condensed" />
                         <Button
                             android:layout_weight="1"
+                            android:layout_height="30dp"
                             android:id="@+id/wedButton"
                             android:text="Wed"
                             android:lines="2"
                             android:ems="3"
                             android:maxEms="3"
                             android:maxLines="2"
-                            android:textColor="@color/timetable_text_color"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/rectangle_dayofweek"
                             android:gravity="center"
-                            android:textSize="18sp"
-                            android:background="@drawable/rectangle" />
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-condensed" />
                         <Button
                             android:layout_weight="1"
+                            android:layout_height="30dp"
                             android:id="@+id/thuButton"
                             android:text="Thu"
                             android:lines="2"
                             android:ems="3"
                             android:maxEms="3"
                             android:maxLines="2"
-                            android:textColor="@color/timetable_text_color"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/rectangle_dayofweek"
                             android:gravity="center"
-                            android:textSize="18sp"
-
-                            android:background="@drawable/rectangle" />
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-condensed" />
                         <Button
                             android:layout_weight="1"
+                            android:layout_height="30dp"
                             android:id="@+id/friButton"
                             android:text="Fri"
                             android:lines="2"
                             android:ems="3"
                             android:maxEms="3"
                             android:maxLines="2"
-                            android:textColor="@color/timetable_text_color"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/rectangle_dayofweek"
                             android:gravity="center"
-                            android:textSize="18sp"
-
-                            android:background="@drawable/rectangle" />
-
-
-
+                            android:textSize="15sp"
+                            android:fontFamily="sans-serif-condensed" />
                     </TableRow>
-
-
 
                     <!-- Column 1 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/firsttimeButton"
-                            android:textSize="18sp"
-                            android:text="09:00"
-                            android:gravity="center"
-                            android:layout_weight="1"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="09:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+
+                        <!--<Button-->
+                            <!--android:id="@+id/firsttimeButton"-->
+                            <!--android:textSize="12sp"-->
+                            <!--android:text="09:00"-->
+                            <!--android:gravity="center"-->
+                            <!--android:layout_weight="5"-->
+                            <!--android:lines="3"-->
+                            <!--android:ems="3"-->
+                            <!--android:maxEms="3"-->
+                            <!--android:maxLines="3"-->
+                            <!--android:layout_marginLeft="0dp"-->
+                            <!--android:layout_marginBottom="0dp"-->
+                            <!--android:textColor="@color/timetable_text_color"-->
+                            <!--android:background="@drawable/rectangle"/>-->
 
                         <Button
                             android:id="@+id/mondayButton1"
@@ -205,21 +244,33 @@
 
                     <!-- Column 2 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/secondtimeButton"
-                            android:text="09:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:layout_weight="1"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="09:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton2"
@@ -291,21 +342,33 @@
 
                     <!-- Column 3 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/thirdtimeButton"
-                            android:text="10:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="3"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton3"
@@ -377,21 +440,33 @@
 
                     <!-- Column 4 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/fourthtimeButton"
-                            android:text="10:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="4"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton4"
@@ -463,21 +538,33 @@
 
                     <!-- Column 5 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/fifthtimeButton"
-                            android:text="11:00"
-                            android:gravity="center"
-                            android:textSize="18sp"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="11:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton5"
@@ -549,21 +636,33 @@
 
                     <!-- Column 6 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/sixthtimeButton"
-                            android:textSize="18sp"
-                            android:text="11:30"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="6"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="11:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton6"
@@ -635,21 +734,33 @@
 
                     <!-- Column 7 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/seventhtimeButton"
-                            android:textSize="18sp"
-                            android:text="12:00"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="7"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton7"
@@ -722,21 +833,33 @@
 
                     <!-- Column 8 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/eighthtimeButton"
-                            android:textSize="18sp"
-                            android:text="12:30"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="8"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton8"
@@ -808,21 +931,33 @@
 
                     <!-- Column 9 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/ninthtimeButton"
-                            android:textSize="18sp"
-                            android:text="13:00"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="9"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="13:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton9"
@@ -894,21 +1029,33 @@
 
                     <!-- Column 10 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/tenthtimeButton"
-                            android:text="13:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="13:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton10"
@@ -980,21 +1127,33 @@
 
                     <!-- Column 11 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/eleventhtimeButton"
-                            android:text="14:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="11"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="14:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton11"
@@ -1066,21 +1225,33 @@
 
                     <!-- Column 12 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twelvethtimeButton"
-                            android:text="14:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="14:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton12"
@@ -1152,21 +1323,33 @@
 
                     <!-- Column 13 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/thirteenthtimeButton"
-                            android:text="15:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="13"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton13"
@@ -1238,21 +1421,33 @@
 
                     <!-- Column 14 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/fourteenthtimeButton"
-                            android:text="15:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="14"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton14"
@@ -1324,21 +1519,33 @@
 
                     <!-- Column 15 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/fifteenthtimeButton"
-                            android:text="16:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="15"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton15"
@@ -1410,21 +1617,33 @@
 
                     <!-- Column 16 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/sixteenthtimeButton"
-                            android:text="16:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton16"
@@ -1496,21 +1715,33 @@
 
                     <!-- Column 17 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/seventeenthtimeButton"
-                            android:text="17:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="17"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="17:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton17"
@@ -1582,21 +1813,33 @@
 
                     <!-- Column 18 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/eighteenthtimeButton"
-                            android:text="17:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="18"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="17:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton18"
@@ -1668,21 +1911,33 @@
 
                     <!-- Column 19 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/nineteenthtimeButton"
-                            android:text="18:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="18:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton19"
@@ -1754,21 +2009,33 @@
 
                     <!-- Column 20 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentithtimeButton"
-                            android:text="18:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="18:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton20"
@@ -1840,21 +2107,33 @@
 
                     <!-- Column 21 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentifirsttimeButton"
-                            android:text="19:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="21"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton21"
@@ -1926,21 +2205,33 @@
 
                     <!-- Column 22 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentisecondtimeButton"
-                            android:text="19:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="22"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="19:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton22"
@@ -2012,21 +2303,33 @@
 
                     <!-- Column 23 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentithirdtimeButton"
-                            android:text="20:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="23"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton23"
@@ -2098,21 +2401,33 @@
 
                     <!-- Column 24 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentifourthtimeButton"
-                            android:text="20:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="24"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="20:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton24"
@@ -2184,21 +2499,32 @@
 
                     <!-- Column 25 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentififthtimeButton"
-                            android:text="21:00"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="25"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="21:00"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton25"
@@ -2270,21 +2596,32 @@
 
                     <!-- Column 26 -->
                     <TableRow
-                        android:weightSum="6">
-                        <Button
-                            android:id="@+id/twentisixthtimeButton"
-                            android:text="21:30"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:lines="3"
-                            android:ems="3"
-                            android:maxEms="3"
-                            android:maxLines="3"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="0dp"
-                            android:layout_marginBottom="0dp"
-                            android:textColor="@color/timetable_text_color"
-                            android:background="@drawable/rectangle"/>
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_weight="5"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="8dp"
+                            android:background="@drawable/rectangle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="26"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:textColor="@android:color/black"
+                                android:layout_gravity="center"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="21:30"
+                                android:textSize="10sp"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/mondayButton26"
